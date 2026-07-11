@@ -230,6 +230,7 @@
     <div class="toggle" id="weekToggle" role="tablist" aria-label="Semana">
       <button data-week="kids" class="on">Con niños</button>
       <button data-week="nokids">Sin niños</button>
+      <button data-week="hijo">Con hijo</button>
     </div>
   </header>
 
@@ -814,7 +815,219 @@ const ROUTINE = {
          tip:"Subir hasta línea recta, no hiperextender. Aprieta glúteo arriba."}
        ]}
     ]
+  },
+
+  hijo1: {
+    title:"Piernas y Salto",
+    subtitle:"Portero · potencia y explosividad",
+    estimated:"35-40 min",
+    hijoOnly:true,
+    warmup:{duration:"5-7 min", steps:[
+      {label:"Movilidad de cadera y tobillo", detail:"10 círculos de cadera cada lado · 10 balanceos de pierna hacia delante/atrás cada lado · 10 círculos de tobillo cada pie."},
+      {label:"Activación tren inferior", detail:"10 sentadillas peso corporal · 5 zancadas cada pierna a ritmo suave, sin salto todavía."},
+      {label:"Preparación pliométrica", detail:"20 saltos suaves en el sitio (poca altura, apenas separando los pies del suelo). Solo para despertar tendón y tobillo."}
+    ]},
+    items:[
+      {num:1,group:"Cuádriceps · técnica",
+       variants:[
+        {type:"calistenia",name:"Sentadilla peso corporal",occ:"Técnica primero, siempre",sets:3,reps:"15",rest:"45s",
+         tip:"Pies a la anchura de hombros, puntas ligeramente afuera. Baja como si te sentaras en una silla, rodillas alineadas con pies, talones apoyados, torso arriba. Baja controlado."},
+        {type:"calistenia",name:"Sentadilla con brazos arriba",occ:"Más exigente para core",sets:3,reps:"12",rest:"45s",
+         tip:"Mismo patrón pero con brazos estirados arriba en Y. Exige más al core y a la movilidad del hombro."}
+       ]},
+      {num:2,group:"Cuádriceps · unilateral",
+       variants:[
+        {type:"calistenia",name:"Sentadilla búlgara asistida (agarrado a la barra)",occ:"Pie de atrás en banco/tronco",sets:2,reps:"8 cada pierna",rest:"45s entre piernas",
+         tip:"Se agarra ligeramente a la barra baja para equilibrio. Rodilla trasera hacia el suelo, torso arriba. La rodilla delantera no debe pasar mucho la punta del pie."},
+        {type:"calistenia",name:"Sentadilla búlgara peso corporal",occ:"Sin apoyo, más difícil de equilibrar",sets:2,reps:"6 cada pierna",rest:"45s entre piernas",
+         tip:"Sin agarre. Cuesta más el equilibrio, es progresión natural del anterior. Baja lento."}
+       ]},
+      {num:3,group:"Coordinación · zancada",
+       variants:[
+        {type:"calistenia",name:"Zancada con impulso (skip lunges)",occ:"Espacio para 3-4 metros",sets:2,reps:"8 cada pierna",rest:"60s",superset:"A · Explosividad calistenia",supersetTip:"Va con Saltos verticales (ejercicio 4). Zancada + salto vertical seguidos sin descanso."},
+        {type:"calistenia",name:"Zancadas caminando",occ:"Sin impulso, más control",sets:2,reps:"10 cada pierna",rest:"60s",superset:"A · Explosividad calistenia",supersetTip:"Va con Saltos verticales (ejercicio 4)."}
+       ],superset:"A · Explosividad calistenia",supersetTip:"Zancadas + Saltos verticales seguidos sin descanso. Es el bloque de potencia de piernas."},
+      {num:4,group:"Salto vertical (portero)",superset:"A · Explosividad calistenia",supersetTip:"Va con las zancadas (ejercicio 3). Termina el bloque con los saltos verticales.",
+       variants:[
+        {type:"calistenia",name:"Saltos verticales máximos con brazada",occ:"Espacio libre",sets:4,reps:"5",rest:"90s",
+         tip:"Salta lo más alto posible imitando que tocas el travesaño. Usa los brazos para dar impulso arriba. Aterriza con rodillas suaves, un poco flexionadas. Descanso completo entre series — es potencia, no cardio."},
+        {type:"calistenia",name:"Saltos verticales al banco",occ:"Banco o tronco bajo",sets:4,reps:"5",rest:"90s",
+         tip:"Salta a subir sobre banco/tronco. Baja caminando (nunca saltando abajo). Más control y menos impacto que el salto libre."}
+       ]},
+      {num:5,group:"Agility lateral",
+       variants:[
+        {type:"calistenia",name:"Saltos laterales sobre línea",occ:"Línea en el suelo o palo",sets:3,reps:"10",rest:"45s",
+         tip:"Saltos rápidos de un lado a otro con pies juntos. Aterriza suave, rodillas ligeramente flexionadas. Importante para desplazamientos de portero."},
+        {type:"calistenia",name:"Saltos a un pie lateral",occ:"Más avanzado",sets:3,reps:"8 cada pie",rest:"45s",
+         tip:"Saltos laterales apoyando solo un pie. Aguanta el aterrizaje 1s antes de saltar al otro lado. Trabaja estabilidad de tobillo."}
+       ]},
+      {num:6,group:"Agarre · dead hang",
+       variants:[
+        {type:"calistenia",name:"Dead hang (colgado de la barra)",occ:"Barra de dominadas",sets:3,reps:"máx tiempo",rest:"60s",
+         tip:"Cuelga con brazos completamente estirados. Aprieta escápulas ligeramente. Empieza objetivo 15-20s y sube semana a semana. Además de agarre, descomprime la columna."}
+       ]},
+      {num:7,group:"Core · abdomen inferior",
+       variants:[
+        {type:"calistenia",name:"Elevación de rodillas colgado",occ:"Barra",sets:2,reps:"8",rest:"45s",
+         tip:"Colgado de la barra, sube las rodillas hasta el pecho. Sin balanceo. Si no salen, empieza con elevación de rodillas tumbado en el suelo."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Cuádriceps · isométrico · extra",
+       variants:[
+        {type:"calistenia",name:"Sentadilla isométrica en pared",occ:"Pared",sets:2,reps:"30-45s",rest:"45s",
+         tip:"Espalda pegada a la pared, muslos paralelos al suelo. Aguanta el tiempo. Muy útil para portero."}
+       ]},
+      {num:102,group:"Salto lateral · extra",
+       variants:[
+        {type:"calistenia",name:"Saltos tijera (skater jumps)",occ:"Espacio libre",sets:3,reps:"8 cada pierna",rest:"45s",
+         tip:"Salto lateral de una pierna a otra, aterrizando con la pierna contraria cruzada por detrás. Simula desplazamiento portero."}
+       ]}
+    ]
+  },
+
+  hijo2: {
+    title:"Tren superior y Agarre",
+    subtitle:"Portero · fuerza para atajar y caídas",
+    estimated:"35-40 min",
+    hijoOnly:true,
+    warmup:{duration:"5-7 min", steps:[
+      {label:"Movilidad de hombro y muñeca", detail:"10 círculos de hombro adelante + 10 atrás · 10 círculos de muñeca cada lado · 10 abrir/cerrar pecho."},
+      {label:"Activación escapular", detail:"1×15 scapular pulls colgado de la barra (solo aprieta escápulas sin doblar codos). Movimiento pequeño pero importante."},
+      {label:"Activación pectoral", detail:"5-8 flexiones suaves de entrada. Sin llegar al fallo, solo despertar."}
+    ]},
+    items:[
+      {num:1,group:"Agarre · dead hang",
+       variants:[
+        {type:"calistenia",name:"Dead hang (colgado de la barra)",occ:"Barra",sets:3,reps:"máx tiempo",rest:"60s",
+         tip:"Objetivo empieza en 20-30s, sube 5s por semana. Aprieta escápulas ligeramente, no cuelgues como saco. Descomprime columna y fortalece agarre."}
+       ]},
+      {num:2,group:"Espalda · tirón",
+       variants:[
+        {type:"calistenia",name:"Dominadas negativas",occ:"Barra + banco/silla para subir",sets:3,reps:"3-5",rest:"75s",
+         tip:"Subes ayudado (saltas o usas silla) y bajas MUY LENTO en 3-4 segundos. Es la mejor forma de empezar dominadas sin tenerlas todavía."},
+        {type:"calistenia",name:"Dominadas con banda elástica de asistencia",occ:"Banda elástica gruesa",sets:3,reps:"4-6",rest:"75s",
+         tip:"Un pie en la banda, banda enganchada a la barra. La banda te ayuda a subir. Progresa a bandas más finas."}
+       ]},
+      {num:3,group:"Pecho · empuje",
+       variants:[
+        {type:"calistenia",name:"Flexiones peso corporal",occ:"Suelo",sets:3,reps:"8-12",rest:"60s",superset:"A · Empuje calistenia",supersetTip:"Va con Fondos asistidos (ejercicio 4). Flexiones + Fondos sin descanso entre ambos."},
+        {type:"calistenia",name:"Flexiones de rodillas",occ:"Si las de peso corporal aún no salen limpias",sets:3,reps:"10-15",rest:"60s",superset:"A · Empuje calistenia",supersetTip:"Va con Fondos asistidos (ejercicio 4)."}
+       ]},
+      {num:4,group:"Tríceps · empuje",superset:"A · Empuje calistenia",supersetTip:"Va con las flexiones (ejercicio 3). Flexiones + Fondos seguidos sin descanso.",
+       variants:[
+        {type:"calistenia",name:"Fondos en paralelas asistidos (piernas dobladas apoyadas)",occ:"Paralelas bajas o banco",sets:3,reps:"5-8",rest:"75s",
+         tip:"Piernas dobladas apoyadas en el suelo o banco para quitarse peso. Baja hasta 90° codos, no más."},
+        {type:"calistenia",name:"Fondos en banco (dips)",occ:"Banco",sets:3,reps:"8-10",rest:"75s",
+         tip:"Manos en banco, piernas al frente. Más fácil que en paralelas. Baja controlado."}
+       ]},
+      {num:5,group:"Espalda · remo",
+       variants:[
+        {type:"calistenia",name:"Remo invertido en barra baja",occ:"Barra a media altura",sets:3,reps:"8-10",rest:"60s",
+         tip:"Cuelga de barra baja con pies en el suelo, cuerpo recto en diagonal. Tira el pecho a la barra manteniendo el cuerpo recto (como una plancha inversa)."}
+       ]},
+      {num:6,group:"Core · anterior",
+       variants:[
+        {type:"calistenia",name:"Plancha frontal",occ:"Suelo",sets:3,reps:"30-45s",rest:"45s",
+         tip:"Antebrazos y pies apoyados. Cadera alineada con hombros y talones, glúteos apretados. No subas ni bajes la cadera."}
+       ]},
+      {num:7,group:"Core · lateral",
+       variants:[
+        {type:"calistenia",name:"Plancha lateral",occ:"Suelo",sets:2,reps:"20-30s cada lado",rest:"45s",
+         tip:"Antebrazo apoyado, cuerpo recto de lado. La cadera arriba. Muy importante para portero, para estirones laterales."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Agarre · extra",
+       variants:[
+        {type:"calistenia",name:"Dead hang con toalla enrollada",occ:"Barra + toalla",sets:2,reps:"15-20s",rest:"60s",
+         tip:"Enrolla una toalla alrededor de la barra y cuélgate agarrado a la toalla. Mucho más difícil el agarre. Perfecto para atrapar balones potentes."}
+       ]},
+      {num:102,group:"Core · dinámico · extra",
+       variants:[
+        {type:"calistenia",name:"Escaladores (mountain climbers)",occ:"Suelo",sets:3,reps:"20 cada pierna",rest:"45s",
+         tip:"Posición de flexión, alterna rodillas hacia el pecho a buen ritmo. Core dinámico + coordinación."}
+       ]}
+    ]
+  },
+
+  hijo3: {
+    title:"Portero completo",
+    subtitle:"Mixta · salto, fuerza, core y agility",
+    estimated:"40-45 min",
+    hijoOnly:true,
+    warmup:{duration:"5-7 min", steps:[
+      {label:"Movilidad general", detail:"10 círculos de cadera y hombro cada uno · 10 balanceos de pierna al frente · 10 círculos de tobillo y muñeca."},
+      {label:"Activación tren inferior", detail:"10 sentadillas peso corporal + 20 saltos suaves en el sitio (preparar tobillo y tendón)."},
+      {label:"Activación tren superior", detail:"5-8 flexiones suaves + 1×15 scapular pulls colgado de la barra."}
+    ]},
+    items:[
+      {num:1,group:"Cuádriceps",
+       variants:[
+        {type:"calistenia",name:"Sentadilla peso corporal",occ:"Foco técnica",sets:3,reps:"12",rest:"45s",
+         tip:"Ojo con talones apoyados y espalda recta. Baja hasta al menos paralela al suelo."}
+       ]},
+      {num:2,group:"Salto vertical",
+       variants:[
+        {type:"calistenia",name:"Saltos verticales con brazada",occ:"Espacio libre",sets:3,reps:"5",rest:"75s",
+         tip:"Salta a tocar lo más alto que puedas. Aterriza suave, rodillas ligeramente flexionadas. Descanso completo entre series."},
+        {type:"calistenia",name:"Saltos al banco",occ:"Banco o tronco",sets:3,reps:"5",rest:"75s",
+         tip:"Sube saltando, baja caminando. Menos impacto que el salto libre."}
+       ]},
+      {num:3,group:"Pecho · empuje",
+       variants:[
+        {type:"calistenia",name:"Flexiones peso corporal",occ:"Suelo",sets:3,reps:"8-10",rest:"60s",superset:"A · Empuje/Tirón calistenia",supersetTip:"Va con Dominadas negativas (ejercicio 4). Flexiones + Dominadas negativas seguidos, sin descanso entre ambos."},
+        {type:"calistenia",name:"Flexiones de rodillas",occ:"Si aún no salen las de peso corporal",sets:3,reps:"10-12",rest:"60s",superset:"A · Empuje/Tirón calistenia",supersetTip:"Va con Dominadas negativas (ejercicio 4)."}
+       ]},
+      {num:4,group:"Espalda · tirón",superset:"A · Empuje/Tirón calistenia",supersetTip:"Va con las flexiones (ejercicio 3). Flexiones + Dominadas negativas seguidos sin descanso.",
+       variants:[
+        {type:"calistenia",name:"Dominadas negativas",occ:"Barra + apoyo para subir",sets:3,reps:"3-5",rest:"75s",
+         tip:"Sube ayudado, baja lento en 3-4 segundos. Foco en el control de la bajada."},
+        {type:"calistenia",name:"Dominadas con banda elástica",occ:"Banda gruesa",sets:3,reps:"4-6",rest:"75s",
+         tip:"Un pie en la banda. Alterna con negativas de una semana a otra si quieres variar estímulo."}
+       ]},
+      {num:5,group:"Explosividad · zancada",
+       variants:[
+        {type:"calistenia",name:"Zancada con salto",occ:"Espacio libre",sets:3,reps:"8 cada pierna",rest:"60s",
+         tip:"Baja a zancada y salta arriba cambiando de pierna en el aire. Explosivo. Descanso completo si hace falta."},
+        {type:"calistenia",name:"Zancadas caminando",occ:"Sin salto",sets:3,reps:"10 cada pierna",rest:"60s",
+         tip:"Alternativa más controlada. Sirve igualmente para trabajar cuádriceps y equilibrio."}
+       ]},
+      {num:6,group:"Agarre · dead hang",
+       variants:[
+        {type:"calistenia",name:"Dead hang",occ:"Barra",sets:2,reps:"máx tiempo",rest:"60s",
+         tip:"Objetivo 20-30s como base. Sube semana a semana."}
+       ]},
+      {num:7,group:"Core · anterior",
+       variants:[
+        {type:"calistenia",name:"Plancha frontal",occ:"Suelo",sets:2,reps:"30-45s",rest:"45s",
+         tip:"Alineación estricta hombros-cadera-talones. Glúteos apretados."}
+       ]},
+      {num:8,group:"Core · lateral",
+       variants:[
+        {type:"calistenia",name:"Plancha lateral",occ:"Suelo",sets:2,reps:"20-30s cada lado",rest:"45s",
+         tip:"Cadera arriba, línea recta. Clave para estirones de portero."}
+       ]},
+      {num:9,group:"Core · rotacional",
+       variants:[
+        {type:"calistenia",name:"Bicicleta abdominal",occ:"Suelo",sets:2,reps:"20 cada lado",rest:"45s",
+         tip:"Tumbado, codo al rodilla contraria con rotación de tronco controlada. Sin tirar del cuello."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Agility lateral · extra",
+       variants:[
+        {type:"calistenia",name:"Saltos laterales sobre línea",occ:"Línea o palo",sets:3,reps:"10",rest:"45s",
+         tip:"Saltos rápidos de un lado a otro con pies juntos. Simula desplazamiento portero."}
+       ]},
+      {num:102,group:"Agarre + core · extra",
+       variants:[
+        {type:"calistenia",name:"Elevación de rodillas colgado",occ:"Barra",sets:2,reps:"8",rest:"45s",
+         tip:"Colgado, sube rodillas al pecho. Sin balanceo. Combina agarre y abdomen inferior."}
+       ]}
+    ]
   }
+  
 };
 
 /* ============ ESTADO ============ */
@@ -824,12 +1037,16 @@ let currentWeek = "kids"; // kids | nokids
 
 const DAYS_KIDS = ["push","pull","legs"];
 const DAYS_NOKIDS = ["push","pull","legs","weekend","weekend2"];
+const DAYS_HIJO = ["hijo1","hijo2","hijo3"];
 const DAY_LABELS = {
   push:{label:"Empuje", short:"Lun · Empuje"},
   pull:{label:"Tirón",  short:"Mié · Tirón"},
   legs:{label:"Pierna+Core", short:"Jue · Pierna+Core"},
   weekend:{label:"Finde A", short:"Finde A · Pecho/Brazos"},
-  weekend2:{label:"Finde B", short:"Finde B · Espalda/Brazos"}
+  weekend2:{label:"Finde B", short:"Finde B · Espalda/Brazos"},
+  hijo1:{label:"Piernas/Salto", short:"Con hijo · Piernas"},
+  hijo2:{label:"Superior/Agarre", short:"Con hijo · Superior"},
+  hijo3:{label:"Portero completo", short:"Con hijo · Mixta"}
 };
 
 function key(...parts){ return STORAGE_PREFIX + parts.join("__"); }
@@ -880,7 +1097,7 @@ function renderNav(){
     b.addEventListener("click", ()=>{ currentDay = d; localStorage.setItem(STORAGE_PREFIX+"day", currentDay); renderAll(); });
     nav.appendChild(b);
   });
-  if(currentWeek==="kids" && currentDay==="weekend"){ currentDay = "push"; }
+  if((currentWeek==="kids" || currentWeek==="hijo") && (currentDay==="weekend" || currentDay==="weekend2")){ currentDay = currentWeek==="hijo" ? "hijo1" : "push"; }
 }
 
 function renderWarmup(day){
@@ -1214,7 +1431,7 @@ document.querySelectorAll("#weekToggle button").forEach(b=>{
     currentWeek = b.dataset.week;
     localStorage.setItem(STORAGE_PREFIX+"week", currentWeek);
     // si el día actual no es válido en esta semana, ir a push
-    const validDays = currentWeek==="kids" ? DAYS_KIDS : DAYS_NOKIDS;
+    const validDays = currentWeek==="kids" ? DAYS_KIDS : currentWeek==="hijo" ? DAYS_HIJO : DAYS_NOKIDS;
     if(!validDays.includes(currentDay)){
       currentDay = "push";
       localStorage.setItem(STORAGE_PREFIX+"day", currentDay);
@@ -1241,14 +1458,14 @@ document.getElementById("resetDay").addEventListener("click", ()=>{
 /* Init */
 (function init(){
   const w = localStorage.getItem(STORAGE_PREFIX+"week");
-  if(w==="nokids" || w==="kids"){
+  if(w==="nokids" || w==="kids" || w==="hijo"){
     currentWeek = w;
     document.querySelectorAll("#weekToggle button").forEach(b=>{
       b.classList.toggle("on", b.dataset.week===currentWeek);
     });
   }
   const d = localStorage.getItem(STORAGE_PREFIX+"day");
-  const validDays = currentWeek==="kids" ? DAYS_KIDS : DAYS_NOKIDS;
+  const validDays = currentWeek==="kids" ? DAYS_KIDS : currentWeek==="hijo" ? DAYS_HIJO : DAYS_NOKIDS;
   if(d && validDays.includes(d)) currentDay = d;
   renderAll();
   initBlockBanner();
