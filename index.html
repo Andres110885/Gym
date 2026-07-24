@@ -1765,13 +1765,6 @@ function renderDay(){
       </div>
     </div>
   `;
-  // Recordatorio definición para rutinas Full Body
-  if(day.definicion && !day.lightSession){
-    const note = document.createElement("div");
-    note.className = "def-note";
-    note.innerHTML = `<b>💡 Nota sobre definir:</b> Definir depende sobre todo de un ligero déficit calórico. El entrenamiento acompaña, no reemplaza. Cuida sueño y proteína suficiente.`;
-    root.appendChild(note);
-  }
   // Aviso seguridad para circuito
   if(day.safetyNote){
     const s = document.createElement("div");
