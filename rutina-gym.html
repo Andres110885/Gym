@@ -603,12 +603,17 @@ const ROUTINE = {
        ]},
       {num:6,group:"Core · prevención",
        variants:[
-        {type:"calistenia",name:"Plancha frontal",occ:"Suelo",sets:4,reps:"30-45s",rest:"45s",
-         tip:"Alineación estricta."},
         {type:"polea",name:"Pallof press",occ:"Polea altura pecho",sets:4,reps:"12 cada lado",rest:"45s",
          tip:"Anti-rotación. Clave para padel."},
-        {type:"calistenia",name:"Plancha lateral",occ:"Suelo",sets:4,reps:"25-30s cada lado",rest:"45s",
-         tip:"Cadera arriba."}
+        {type:"banda",name:"Pallof press con banda",occ:"Banda fija",sets:4,reps:"12 cada lado",rest:"45s",
+         tip:"Alternativa con banda. Caderas y hombros alineados."},
+        {type:"calistenia",name:"Bicicleta abdominal",occ:"Suelo",sets:4,reps:"20 cada lado",rest:"45s",
+         tip:"Codo al rodilla contraria, rotación de tronco controlada. Sin tirar del cuello."}
+       ]},
+      {num:7,group:"Hombro · prevención (rotadores)",
+       variants:[
+        {type:"polea",name:"Rotaciones internas y externas de hombro",occ:"Polea o mancuerna ligera",sets:2,reps:"12-15 cada lado",rest:"45s",
+         tip:"Peso muy ligero. Codo pegado al costado y movimiento solo del antebrazo. Prevención, no fuerza."}
        ]}
     ],
     extras:[
@@ -649,14 +654,25 @@ const ROUTINE = {
         {type:"calistenia",name:"Sentadilla búlgara peso corporal",occ:"Banco",sets:4,reps:"12 cada pierna",rest:"60s entre piernas",
          tip:"Alternativa sin peso externo."}
        ]},
-      {num:2,group:"Pecho · empuje",
+      {num:2,group:"Glúteo · potencia padel",
        variants:[
-        {type:"mancuerna",name:"Press inclinado con mancuernas",occ:"Banco 30°",sets:4,reps:"10-12",rest:"60s",superset:"D · Empuje+Tirón",supersetTip:"Va con Jalón (ejercicio 3). Alternados."},
-        {type:"barra",name:"Press inclinado con barra",occ:"Banco 30° + barra",sets:4,reps:"8-10",rest:"75s",superset:"D · Empuje+Tirón",supersetTip:"Va con Jalón (ejercicio 3)."},
-        {type:"maquina",name:"Press inclinado en máquina",occ:"Máquina convergente",sets:4,reps:"10-12",rest:"60s",superset:"D · Empuje+Tirón",supersetTip:"Va con Jalón (ejercicio 3)."},
-        {type:"calistenia",name:"Flexiones con pies elevados",occ:"Banco",sets:4,reps:"12-15",rest:"60s",superset:"D · Empuje+Tirón",supersetTip:"Va con Remo invertido (ejercicio 3)."}
+        {type:"barra",name:"Hip thrust con barra",occ:"Barra + banco",sets:4,reps:"8-10",rest:"90s",
+         tip:"Empuja con talones, aprieta glúteo arriba 1s. Explosividad para cambios de dirección en padel."},
+        {type:"mancuerna",name:"Hip thrust con mancuerna",occ:"Mancuerna pesada + banco",sets:4,reps:"10-12",rest:"75s",
+         tip:"Mancuerna sobre cadera."},
+        {type:"maquina",name:"Hip thrust en máquina",occ:"Máquina o Smith",sets:4,reps:"10-12",rest:"75s",
+         tip:"Rango completo, sin rebotar."},
+        {type:"calistenia",name:"Hip thrust unilateral peso corporal",occ:"Banco",sets:4,reps:"10 cada pierna",rest:"60s entre lados",
+         tip:"Un pie apoyado, otro en el aire. Aprieta glúteo arriba."}
        ]},
-      {num:3,group:"Espalda · tirón vertical",superset:"D · Empuje+Tirón",supersetTip:"Va con Press inclinado (ejercicio 2). Alternados.",
+      {num:3,group:"Pecho · empuje",
+       variants:[
+        {type:"mancuerna",name:"Press inclinado con mancuernas",occ:"Banco 30°",sets:4,reps:"10-12",rest:"60s",superset:"D · Empuje+Tirón",supersetTip:"Va con Jalón (ejercicio 4). Alternados."},
+        {type:"barra",name:"Press inclinado con barra",occ:"Banco 30° + barra",sets:4,reps:"8-10",rest:"75s",superset:"D · Empuje+Tirón",supersetTip:"Va con Jalón (ejercicio 4)."},
+        {type:"maquina",name:"Press inclinado en máquina",occ:"Máquina convergente",sets:4,reps:"10-12",rest:"60s",superset:"D · Empuje+Tirón",supersetTip:"Va con Jalón (ejercicio 4)."},
+        {type:"calistenia",name:"Flexiones con pies elevados",occ:"Banco",sets:4,reps:"12-15",rest:"60s",superset:"D · Empuje+Tirón",supersetTip:"Va con Remo invertido (ejercicio 4)."}
+       ]},
+      {num:4,group:"Espalda · tirón vertical",superset:"D · Empuje+Tirón",supersetTip:"Va con Press inclinado (ejercicio 3). Alternados.",
        variants:[
         {type:"polea",name:"Jalón polea agarre neutro (V)",occ:"Polea + agarre V",sets:4,reps:"10-12",rest:"60s",
          tip:"Amable con hombro y muñeca."},
@@ -667,14 +683,14 @@ const ROUTINE = {
         {type:"mancuerna",name:"Remo mancuerna a 1 mano apoyado",occ:"Banco + mancuerna",sets:4,reps:"10 cada lado",rest:"60s entre lados",
          tip:"Tira a la cadera."}
        ]},
-      {num:4,group:"Bíceps",
+      {num:5,group:"Bíceps",
        variants:[
-        {type:"mancuerna",name:"Curl bíceps mancuerna",occ:"Mancuernas",sets:4,reps:"10-12",rest:"45s",superset:"E · Brazos superserie",supersetTip:"Va con Tríceps (ejercicio 5). Superserie bíceps+tríceps clásica con mancuernas."},
-        {type:"barra",name:"Curl con barra Z",occ:"Barra Z",sets:4,reps:"10-12",rest:"60s",superset:"E · Brazos superserie",supersetTip:"Va con Tríceps (ejercicio 5)."},
-        {type:"polea",name:"Curl polea baja barra Z",occ:"Polea",sets:4,reps:"10-12",rest:"45s",superset:"E · Brazos superserie",supersetTip:"Va con Tríceps (ejercicio 5)."},
-        {type:"maquina",name:"Curl Scott máquina",occ:"Banco Scott",sets:4,reps:"10-12",rest:"45s",superset:"E · Brazos superserie",supersetTip:"Va con Tríceps (ejercicio 5)."}
+        {type:"mancuerna",name:"Curl bíceps mancuerna",occ:"Mancuernas",sets:4,reps:"10-12",rest:"45s",superset:"E · Brazos superserie",supersetTip:"Va con Tríceps (ejercicio 6). Superserie bíceps+tríceps clásica con mancuernas."},
+        {type:"barra",name:"Curl con barra Z",occ:"Barra Z",sets:4,reps:"10-12",rest:"60s",superset:"E · Brazos superserie",supersetTip:"Va con Tríceps (ejercicio 6)."},
+        {type:"polea",name:"Curl polea baja barra Z",occ:"Polea",sets:4,reps:"10-12",rest:"45s",superset:"E · Brazos superserie",supersetTip:"Va con Tríceps (ejercicio 6)."},
+        {type:"maquina",name:"Curl Scott máquina",occ:"Banco Scott",sets:4,reps:"10-12",rest:"45s",superset:"E · Brazos superserie",supersetTip:"Va con Tríceps (ejercicio 6)."}
        ]},
-      {num:5,group:"Tríceps",superset:"E · Brazos superserie",supersetTip:"Va con Curl bíceps (ejercicio 4). Bíceps + tríceps alternados.",
+      {num:6,group:"Tríceps",superset:"E · Brazos superserie",supersetTip:"Va con Curl bíceps (ejercicio 5). Bíceps + tríceps alternados.",
        variants:[
         {type:"mancuerna",name:"Press francés mancuerna 1 mano",occ:"Sentado",sets:4,reps:"12 cada lado",rest:"45s entre lados",
          tip:"Codo apuntando arriba. Agarre neutro protege muñeca."},
@@ -685,14 +701,19 @@ const ROUTINE = {
         {type:"calistenia",name:"Fondos en banco",occ:"Banco",sets:4,reps:"10-12",rest:"60s",
          tip:"Manos en banco, piernas al frente."}
        ]},
-      {num:6,group:"Core · anti-rotación",
+      {num:7,group:"Core · anti-rotación",
        variants:[
         {type:"polea",name:"Pallof press en polea",occ:"Polea altura pecho",sets:4,reps:"12 cada lado",rest:"45s",
          tip:"Anti-rotación, clave para padel."},
         {type:"banda",name:"Pallof press con banda",occ:"Banda fija",sets:4,reps:"12 cada lado",rest:"45s",
          tip:"Alternativa con banda."},
-        {type:"calistenia",name:"Plancha frontal",occ:"Suelo",sets:4,reps:"30-45s",rest:"45s",
-         tip:"Alineación estricta."}
+        {type:"calistenia",name:"Bicicleta abdominal",occ:"Suelo",sets:4,reps:"20 cada lado",rest:"45s",
+         tip:"Codo al rodilla contraria, rotación de tronco controlada. Sin tirar del cuello."}
+       ]},
+      {num:8,group:"Hombro · prevención (rotadores)",
+       variants:[
+        {type:"polea",name:"Rotaciones internas y externas de hombro",occ:"Polea o mancuerna ligera",sets:2,reps:"12-15 cada lado",rest:"45s",
+         tip:"Peso muy ligero. Codo pegado al costado y movimiento solo del antebrazo. Prevención, no fuerza."}
        ]}
     ],
     extras:[
