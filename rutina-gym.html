@@ -181,6 +181,69 @@
   .final-challenge ul{margin:0;padding-left:20px;font-size:13px;line-height:1.5}
   .final-challenge li{margin:4px 0}
 
+  /* Objetivos por músculo (targetMuscles) */
+  .goals-card{margin:10px 0;padding:12px 14px;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow)}
+  .goals-card b{display:block;font-size:12.5px;color:var(--muted);text-transform:uppercase;
+    letter-spacing:.05em;margin-bottom:8px}
+  .goals-list{display:flex;flex-wrap:wrap;gap:6px}
+  .goal-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:var(--accent-soft);
+    color:var(--accent);border-radius:999px;font-size:13px;font-weight:700}
+  .goal-chip .goal-min{background:var(--accent);color:#fff;width:22px;height:22px;border-radius:50%;
+    display:grid;place-items:center;font-size:12px;font-weight:800}
+  .goal-chip .goal-note{color:var(--ink-soft);font-weight:500;font-size:11.5px}
+
+  /* Sección de material */
+  .msection{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);margin:10px 0;overflow:hidden}
+  .msection-h{display:flex;gap:10px;align-items:center;padding:12px;cursor:pointer;user-select:none}
+  .msection-h .micon{flex:0 0 36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);
+    display:grid;place-items:center;font-size:20px}
+  .msection-h .mname{flex:1;min-width:0}
+  .msection-h .mname b{display:block;font-size:16px;font-weight:800}
+  .msection-h .mname .mcount{font-size:12px;color:var(--muted);margin-top:2px}
+  .msection-h .arrow{flex:0 0 22px;color:var(--muted);transition:transform .2s ease;font-size:18px}
+  .msection.open .msection-h .arrow{transform:rotate(180deg)}
+  .msection-body{display:none;padding:0 12px 12px;border-top:1px dashed var(--line)}
+  .msection.open .msection-body{display:block}
+
+  /* Subgrupo por músculo */
+  .mgroup{margin-top:10px}
+  .mgroup-title{font-size:12px;font-weight:800;color:var(--accent);text-transform:uppercase;
+    letter-spacing:.06em;margin:6px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+
+  /* Ejercicio compacto */
+  .mex{background:var(--bg);border:1px solid var(--line);border-radius:10px;margin:6px 0;overflow:hidden}
+  .mex-h{display:flex;gap:8px;align-items:center;padding:8px 10px;cursor:pointer;user-select:none}
+  .mex-h .mex-check{flex:0 0 22px}
+  .mex-h .mex-check input{width:20px;height:20px;accent-color:var(--good);cursor:pointer}
+  .mex-h .mex-name{flex:1;min-width:0;font-weight:700;font-size:13.5px;line-height:1.3}
+  .mex-h .mex-name .mex-sub{display:block;font-size:11.5px;color:var(--muted);font-weight:500;margin-top:2px}
+  .mex-h .mex-meta{flex:0 0 auto;font-size:11px;color:var(--ink-soft);text-align:right;white-space:nowrap;font-weight:600}
+  .mex-h .arrow{flex:0 0 18px;color:var(--muted);font-size:14px;transition:transform .2s ease}
+  .mex.open .mex-h .arrow{transform:rotate(180deg)}
+  .mex.done .mex-h .mex-name{text-decoration:line-through;color:var(--muted)}
+  .mex-body{display:none;padding:0 10px 10px;border-top:1px dashed var(--line)}
+  .mex.open .mex-body{display:block}
+  .mex-tip{font-size:12.5px;color:var(--ink-soft);background:var(--card);padding:8px 10px;
+    border-left:3px solid var(--accent);border-radius:6px;margin:8px 0;line-height:1.4}
+  .mex-yt{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;background:#ff0033;color:#fff;
+    text-decoration:none;font-weight:700;font-size:12px;border-radius:8px;margin:6px 0}
+  .mex-yt svg{width:14px;height:14px;fill:#fff}
+
+  /* Tracker inline en cada ejercicio */
+  .mex-tracker{margin:8px 0 4px}
+  .mex-tracker table{width:100%;border-collapse:collapse;font-size:12.5px}
+  .mex-tracker th,.mex-tracker td{padding:4px 3px;text-align:center;border-bottom:1px solid var(--line)}
+  .mex-tracker th{font-size:10px;text-transform:uppercase;color:var(--muted);font-weight:700;letter-spacing:.04em}
+  .mex-tracker input[type=number]{width:100%;max-width:65px;padding:5px 4px;border-radius:6px;
+    border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;text-align:center;
+    font-weight:600;-moz-appearance:textfield}
+  .mex-tracker input::-webkit-outer-spin-button,.mex-tracker input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .mex-tracker td.mts{font-weight:800;color:var(--accent);width:26px;font-size:12px}
+  .mex-tracker td.mtc input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+  .mex-tracker tr.done td:not(.mtc){opacity:.55}
+
   /* Superserie */
   .superset-wrap{margin:10px 0;border:2px solid var(--accent);border-radius:var(--radius);
     padding:8px;background:linear-gradient(180deg, var(--accent-soft), transparent 30%)}
@@ -336,6 +399,398 @@
 /* schema: { num, group, variants:[{name, occ, sets, reps, rest, tip}] } */
 
 const ROUTINE = {
+  empuje: {
+    title:"Empuje",
+    subtitle:"Pecho · Hombro · Tríceps",
+    estimated:"55-70 min",
+    sectionsFormat:true,
+    targetMuscles:[
+      {muscle:"Pecho",min:2,note:"prioridad estética"},
+      {muscle:"Hombro",min:3,note:"1 lateral + 1 press/anterior + 1 posterior"},
+      {muscle:"Tríceps",min:2,note:"prioridad estética"}
+    ],
+    warmup:{duration:"5-7 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio)", detail:"1×15 rotación interna y 1×15 externa cada lado, peso muy ligero · 15 círculos de muñeca cada mano."},
+      {label:"Movilidad torácica y hombro", detail:"10 círculos hombro adelante + 10 atrás · 10 abrir/cerrar pecho · 10 rotaciones tronco."},
+      {label:"Activación pectoral y serrato", detail:"10-15 flexiones suaves o aperturas con banda ligera. Solo despertar."}
+    ]},
+    sections:[
+      {material:"Mancuernas",icon:"🏋️",groups:[
+        {muscle:"Pecho",exercises:[
+          {name:"Press inclinado con mancuernas",sub:"Pecho superior",sets:"3-4",reps:"8-12",rest:"75-90s",tip:"Banco a 30°. Codos 45° del torso. No choques las mancuernas arriba."},
+          {name:"Press plano con mancuernas",sub:"Pecho",sets:"3-4",reps:"8-12",rest:"75-90s",tip:"Codos 45°, baja controlado. No al fallo."},
+          {name:"Aperturas con mancuernas plano o inclinado",sub:"Pecho",sets:"3",reps:"12-15",rest:"60s",tip:"Codos casi rectos, estiramiento controlado."}
+        ]},
+        {muscle:"Hombro",exercises:[
+          {name:"Press hombro con mancuernas sentado",sub:"Hombro (press)",sets:"3-4",reps:"10-12",rest:"75s",tip:"Mancuernas a altura de orejas. No bloquees codos arriba."},
+          {name:"Press Arnold",sub:"Hombro (press con rotación)",sets:"3",reps:"10-12",rest:"75s",tip:"Palmas hacia ti abajo, giras al subir. Pesos algo más ligeros."},
+          {name:"Elevaciones laterales con mancuernas",sub:"Hombro lateral",sets:"3-4",reps:"12-15",rest:"45s",tip:"Codo lidera, sube hasta paralela. Meñique ligeramente arriba."},
+          {name:"Elevaciones frontales con mancuerna o disco",sub:"Hombro anterior",sets:"3",reps:"12",rest:"45s",tip:"Sube hasta altura de hombro. Movimiento limpio."},
+          {name:"Pájaros en banco inclinado (rear delt)",sub:"Hombro posterior",sets:"3",reps:"12-15",rest:"45s",tip:"Tronco 45°, codos algo doblados. Sube codos, no manos."}
+        ]},
+        {muscle:"Tríceps",exercises:[
+          {name:"Press francés con mancuerna 1 mano",sub:"Tríceps",sets:"3",reps:"12 cada lado",rest:"45s entre lados",tip:"Codo arriba y fijo. Agarre neutro si muñeca protesta."},
+          {name:"Extensión tríceps sobre cabeza mancuerna 2 manos",sub:"Tríceps (cabeza larga)",sets:"3",reps:"10-12",rest:"60s",tip:"Codos apuntando arriba, no abren. Baja controlado."},
+          {name:"Patada de tríceps con mancuerna",sub:"Tríceps",sets:"3",reps:"12 cada lado",rest:"45s entre lados",tip:"Tronco inclinado, codo pegado al costado."}
+        ]}
+      ]},
+      {material:"Barra",icon:"➖",groups:[
+        {muscle:"Pecho",exercises:[
+          {name:"Press banca plano",sub:"Pecho",sets:"3-4",reps:"6-10",rest:"90-120s",tip:"Agarre algo más ancho que hombros. Codos 45°. Muñequeras si la derecha protesta."},
+          {name:"Press banca inclinado",sub:"Pecho superior",sets:"3-4",reps:"6-10",rest:"90-120s",tip:"Banco 30°. Barra al pecho alto."}
+        ]},
+        {muscle:"Hombro",exercises:[
+          {name:"Press militar sentado con barra",sub:"Hombro (press)",sets:"3",reps:"8-10",rest:"90s",tip:"Sentado con respaldo para proteger lumbar. Baja al mentón."}
+        ]},
+        {muscle:"Tríceps",exercises:[
+          {name:"Press cerrado con barra",sub:"Tríceps + pecho interno",sets:"3",reps:"8-10",rest:"90s",tip:"Manos anchura de hombros, codos pegados. Barra Z si molesta muñeca."},
+          {name:"Extensión tríceps con barra Z tumbado",sub:"Tríceps",sets:"3",reps:"10-12",rest:"60s",tip:"Codos apuntando al techo, casi fijos."}
+        ]}
+      ]},
+      {material:"Polea",icon:"🪢",groups:[
+        {muscle:"Pecho",exercises:[
+          {name:"Cruces polea alta a baja",sub:"Pecho",sets:"3",reps:"12-15",rest:"60s",tip:"Pies escalonados. Ligero adelantar el tronco. Cruza al final."},
+          {name:"Cruces polea baja a alta",sub:"Pecho superior",sets:"3",reps:"12-15",rest:"60s",tip:"Sube y junta al frente. Foco pecho superior."}
+        ]},
+        {muscle:"Hombro",exercises:[
+          {name:"Elevación lateral en polea baja (1 brazo)",sub:"Hombro lateral",sets:"3",reps:"12 cada lado",rest:"45s entre lados",tip:"Brazo cruzando por delante. Tensión continua."},
+          {name:"Elevación frontal en polea baja",sub:"Hombro anterior",sets:"3",reps:"12",rest:"45s",tip:"Brazo casi recto. Sube hasta hombro."},
+          {name:"Face pull con cuerda",sub:"Hombro posterior + prevención",sets:"3",reps:"15",rest:"45s",tip:"Polea alta. Codos altos, separa al final."}
+        ]},
+        {muscle:"Tríceps",exercises:[
+          {name:"Extensión tríceps polea con cuerda",sub:"Tríceps",sets:"3-4",reps:"12-15",rest:"45-60s",tip:"Codos pegados al torso. Separa cuerdas al final."},
+          {name:"Press tríceps polea barra V",sub:"Tríceps",sets:"3",reps:"10-12",rest:"60s",tip:"Codos quietos al costado."},
+          {name:"Patada tríceps polea 1 mano",sub:"Tríceps",sets:"3",reps:"12 cada lado",rest:"45s entre lados",tip:"Tronco inclinado. Extiende sin mover el codo."}
+        ]}
+      ]},
+      {material:"Máquinas",icon:"⚙️",groups:[
+        {muscle:"Pecho",exercises:[
+          {name:"Press pecho en máquina (plano o convergente)",sub:"Pecho",sets:"3-4",reps:"8-12",rest:"75s",tip:"Ajusta asiento a altura de pecho. Empuja controlado."},
+          {name:"Press inclinado en máquina",sub:"Pecho superior",sets:"3-4",reps:"8-12",rest:"75s",tip:"Asas a altura de pecho alto."},
+          {name:"Pec deck / aperturas máquina",sub:"Pecho",sets:"3",reps:"12-15",rest:"60s",tip:"Codos ligeramente flexionados y fijos. Aprieta 1s al final."}
+        ]},
+        {muscle:"Hombro",exercises:[
+          {name:"Press hombro en máquina",sub:"Hombro (press)",sets:"3",reps:"10-12",rest:"75s",tip:"Asas a altura de hombros. Sin encoger trapecio."},
+          {name:"Elevación lateral en máquina",sub:"Hombro lateral",sets:"3",reps:"12-15",rest:"45s",tip:"Empuja con el codo. Sin balancear."},
+          {name:"Rear delt / pec deck inverso",sub:"Hombro posterior",sets:"3",reps:"12-15",rest:"45s",tip:"De frente al respaldo. Abre brazos, aprieta escápulas."}
+        ]},
+        {muscle:"Tríceps",exercises:[
+          {name:"Fondos en máquina asistida",sub:"Tríceps + pecho",sets:"3",reps:"8-12",rest:"75s",tip:"Tronco vertical enfoca tríceps."},
+          {name:"Extensión tríceps en máquina",sub:"Tríceps",sets:"3",reps:"10-12",rest:"60s",tip:"Codos apoyados. Extensión completa."}
+        ]}
+      ]},
+      {material:"Suelo",icon:"🧘",exercises:[
+        {name:"Crunch abdominal",sub:"Abdomen recto",sets:"3",reps:"15-20",rest:"45s",tip:"Rango corto pero controlado. No tirar del cuello."},
+        {name:"Elevación de piernas tumbado",sub:"Abdomen inferior",sets:"3",reps:"12-15",rest:"45s",tip:"Piernas rectas o dobladas. Lumbar pegada al suelo."},
+        {name:"Elevación de piernas colgado en barra",sub:"Abdomen inferior + agarre",sets:"3",reps:"8-12",rest:"60s",tip:"Sin balanceo."}
+      ]},
+      {material:"Movilidad",icon:"🌀",exercises:[
+        {name:"90/90 cadera",sub:"Rotación cadera",sets:"2",reps:"30s cada lado",rest:"-",tip:"Sentado con pierna delantera a 90° y trasera a 90°. Inclínate al frente sobre la delantera."},
+        {name:"Mariposa (aductores)",sub:"Aductores",sets:"2",reps:"45-60s",rest:"-",tip:"Sentado, plantas de los pies juntas. Empuja rodillas al suelo suavemente."},
+        {name:"Estiramiento isquios sentado",sub:"Isquios",sets:"2",reps:"30s cada pierna",rest:"-",tip:"Piernas rectas. Inclínate desde la cadera, no redondeando la espalda."},
+        {name:"Cat-camel + child's pose",sub:"Lumbar / columna",sets:"2",reps:"10 + 30s",rest:"-",tip:"10 gato-camello a ritmo lento, y termina 30s en child's pose descargando lumbar."}
+      ]}
+    ]
+  },
+
+  tiron: {
+    title:"Tirón",
+    subtitle:"Espalda · Bíceps",
+    estimated:"55-70 min",
+    sectionsFormat:true,
+    targetMuscles:[
+      {muscle:"Dorsal (tirón vertical)",min:2,note:"jalón / dominadas"},
+      {muscle:"Espalda media (remo)",min:2,note:"remo horizontal"},
+      {muscle:"Bíceps",min:2,note:"prioridad estética"},
+      {muscle:"Braquial / antebrazo",min:1,note:"martillo o inverso"}
+    ],
+    warmup:{duration:"5-7 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio)", detail:"1×15 rotación interna y 1×15 externa cada lado · 15 círculos de muñeca cada mano."},
+      {label:"Movilidad columna y escápulas", detail:"10 gato-camello · 10 thread the needle cada lado · 10 círculos hombro atrás."},
+      {label:"Activación escapular", detail:"1×15 face pull con banda + 10 scapular pulls colgado de barra."}
+    ]},
+    sections:[
+      {material:"Mancuernas",icon:"🏋️",groups:[
+        {muscle:"Dorsal / tirón",exercises:[
+          {name:"Pullover con mancuerna",sub:"Dorsal",sets:"3",reps:"12",rest:"60s",tip:"Codos casi rectos. Foco estiramiento dorsal."}
+        ]},
+        {muscle:"Espalda media (remo)",exercises:[
+          {name:"Remo con mancuerna 1 brazo apoyado",sub:"Espalda media",sets:"3-4",reps:"10-12 cada lado",rest:"60s entre lados",tip:"Tronco paralelo. Tira a la cadera, codo cerca del cuerpo."},
+          {name:"Remo con mancuernas en banco inclinado pecho apoyado",sub:"Espalda media",sets:"3",reps:"10-12",rest:"75s",tip:"Banco a 30°, pecho apoyado. Menos trampa que remo libre."},
+          {name:"Encogimientos con mancuernas",sub:"Trapecio superior",sets:"3",reps:"12-15",rest:"45s",tip:"Sube recto. Sin rotar."}
+        ]},
+        {muscle:"Bíceps",exercises:[
+          {name:"Curl bíceps con mancuernas alterno",sub:"Bíceps",sets:"3-4",reps:"10-12 cada brazo",rest:"45-60s",tip:"Codo fijo, supina al subir."},
+          {name:"Curl bíceps banco inclinado 60°",sub:"Bíceps (estiramiento)",sets:"3",reps:"10-12",rest:"60s",tip:"El banco estira el bíceps."},
+          {name:"Curl concentrado",sub:"Bíceps aislado",sets:"3",reps:"10 cada brazo",rest:"45s entre lados",tip:"Codo apoyado en muslo. Pico de contracción."}
+        ]},
+        {muscle:"Braquial / antebrazo",exercises:[
+          {name:"Curl martillo con mancuernas",sub:"Braquial + antebrazo",sets:"3",reps:"12",rest:"45s",tip:"Pulgar arriba todo el rato."},
+          {name:"Curl Zottman",sub:"Bíceps + antebrazo",sets:"3",reps:"10",rest:"60s",tip:"Sube supinado, baja pronado."}
+        ]}
+      ]},
+      {material:"Barra",icon:"➖",groups:[
+        {muscle:"Espalda media (remo)",exercises:[
+          {name:"Remo con barra (Pendlay o convencional)",sub:"Espalda media",sets:"3-4",reps:"8-10",rest:"90s",tip:"Tronco casi paralelo. Tira al esternón. Cuida lumbar."}
+        ]},
+        {muscle:"Cadena posterior (opcional)",exercises:[
+          {name:"Peso muerto rumano con barra",sub:"Femoral + glúteo + lumbar",sets:"3",reps:"8-10",rest:"90s",tip:"Cadera atrás, espalda recta. Barra pegada."}
+        ]},
+        {muscle:"Bíceps",exercises:[
+          {name:"Curl con barra Z",sub:"Bíceps",sets:"3",reps:"10-12",rest:"60s",tip:"Barra Z protege muñeca. Codos pegados."},
+          {name:"Curl predicador con barra Z",sub:"Bíceps aislado",sets:"3",reps:"10-12",rest:"60s",tip:"Codos pegados al apoyo. Bajada lenta."}
+        ]},
+        {muscle:"Braquial / antebrazo",exercises:[
+          {name:"Curl inverso con barra Z",sub:"Antebrazo + braquial",sets:"3",reps:"10",rest:"60s",tip:"Palmas hacia abajo. Pesos ligeros."}
+        ]},
+        {muscle:"Trapecio",exercises:[
+          {name:"Encogimientos con barra",sub:"Trapecio",sets:"3",reps:"12",rest:"45s",tip:"Sube recto sin rotar."}
+        ]}
+      ]},
+      {material:"Polea",icon:"🪢",groups:[
+        {muscle:"Dorsal / tirón",exercises:[
+          {name:"Jalón al pecho agarre prono ancho",sub:"Dorsal (V)",sets:"3-4",reps:"8-12",rest:"75s",tip:"Pecho arriba, lleva al pecho alto. Retrae escápulas."},
+          {name:"Jalón agarre neutro (V)",sub:"Dorsal",sets:"3-4",reps:"10-12",rest:"75s",tip:"Amable con hombro y muñeca."},
+          {name:"Jalón agarre estrecho supino",sub:"Dorsal + bíceps",sets:"3",reps:"10-12",rest:"75s",tip:"Palmas hacia ti. Foco dorsal bajo + bíceps."},
+          {name:"Pullover en polea alta brazos extendidos",sub:"Dorsal",sets:"3",reps:"12-15",rest:"60s",tip:"Brazos casi rectos. No es de tríceps."}
+        ]},
+        {muscle:"Espalda media (remo)",exercises:[
+          {name:"Remo polea baja agarre cerrado",sub:"Espalda media",sets:"3-4",reps:"10-12",rest:"75s",tip:"Pecho fuera, tira al ombligo."},
+          {name:"Face pull con cuerda",sub:"Hombro posterior + prevención",sets:"3",reps:"15",rest:"45s",tip:"Codos altos, separa cuerdas al final."}
+        ]},
+        {muscle:"Bíceps",exercises:[
+          {name:"Curl bíceps polea baja barra Z",sub:"Bíceps",sets:"3",reps:"10-12",rest:"45-60s",tip:"Tensión continua."},
+          {name:"Curl polea 1 mano concentración",sub:"Bíceps aislado",sets:"3",reps:"10 cada brazo",rest:"45s entre lados",tip:"De pie de lado a la polea."}
+        ]},
+        {muscle:"Braquial / antebrazo",exercises:[
+          {name:"Curl polea con cuerda martillo",sub:"Braquial",sets:"3",reps:"12",rest:"45s",tip:"Pulgar arriba."}
+        ]}
+      ]},
+      {material:"Máquinas",icon:"⚙️",groups:[
+        {muscle:"Dorsal / tirón",exercises:[
+          {name:"Máquina de jalones",sub:"Dorsal",sets:"3-4",reps:"8-12",rest:"75s",tip:"Ajusta rodillera. Pecho arriba."},
+          {name:"Dominadas asistidas máquina",sub:"Dorsal + bíceps",sets:"3",reps:"6-10",rest:"90s",tip:"Ajusta asistencia según lo que salga."},
+          {name:"Pull-around / pullover en máquina",sub:"Dorsal",sets:"3",reps:"12",rest:"60s",tip:"Foco estiramiento dorsal profundo."}
+        ]},
+        {muscle:"Espalda media (remo)",exercises:[
+          {name:"Remo máquina pecho apoyado",sub:"Espalda media",sets:"3-4",reps:"10-12",rest:"75s",tip:"Codos cerca del cuerpo. Sin encoger trapecio."}
+        ]},
+        {muscle:"Bíceps",exercises:[
+          {name:"Curl bíceps máquina (Scott / predicador)",sub:"Bíceps",sets:"3",reps:"10-12",rest:"45-60s",tip:"Codos pegados al apoyo. Bajada lenta."},
+          {name:"Curl bíceps máquina brazo apoyado",sub:"Bíceps aislado",sets:"3",reps:"10-12",rest:"45s",tip:"Alternativa cómoda para foco."}
+        ]},
+        {muscle:"Trapecio",exercises:[
+          {name:"Encogimientos en máquina Smith",sub:"Trapecio",sets:"3",reps:"12-15",rest:"45s",tip:"Sin estabilizar la barra. Foco muscular."}
+        ]}
+      ]},
+      {material:"Suelo",icon:"🧘",exercises:[
+        {name:"Crunch abdominal",sub:"Abdomen recto",sets:"3",reps:"15-20",rest:"45s",tip:"Rango corto, sin tirar del cuello."},
+        {name:"Elevación de piernas tumbado",sub:"Abdomen inferior",sets:"3",reps:"12-15",rest:"45s",tip:"Lumbar pegada al suelo."},
+        {name:"Elevación de piernas colgado en barra",sub:"Abdomen inferior + agarre",sets:"3",reps:"8-12",rest:"60s",tip:"Sin balanceo."},
+        {name:"Superman (extensión lumbar)",sub:"Erectores / lumbar",sets:"3",reps:"12",rest:"45s",tip:"Boca abajo, sube brazos y piernas 2s."}
+      ]},
+      {material:"Movilidad",icon:"🌀",exercises:[
+        {name:"90/90 cadera",sub:"Rotación cadera",sets:"2",reps:"30s cada lado",rest:"-",tip:"Sentado. Inclínate sobre la delantera."},
+        {name:"Mariposa (aductores)",sub:"Aductores",sets:"2",reps:"45-60s",rest:"-",tip:"Plantas juntas, rodillas al suelo."},
+        {name:"Estiramiento isquios sentado",sub:"Isquios",sets:"2",reps:"30s cada pierna",rest:"-",tip:"Inclínate desde la cadera."},
+        {name:"Cat-camel + child's pose",sub:"Lumbar / columna",sets:"2",reps:"10 + 30s",rest:"-",tip:"Descarga lumbar total."}
+      ]}
+    ]
+  },
+
+  pierna: {
+    title:"Pierna",
+    subtitle:"Cuádriceps · Femoral · Glúteo · Gemelo",
+    estimated:"55-70 min",
+    sectionsFormat:true,
+    targetMuscles:[
+      {muscle:"Cuádriceps",min:2,note:"1 compuesto + 1 aislado"},
+      {muscle:"Femoral",min:2,note:"curl o RDL"},
+      {muscle:"Glúteo",min:1,note:"hip thrust u otro"},
+      {muscle:"Gemelo",min:1,note:"de pie o sentado"}
+    ],
+    warmup:{duration:"6-8 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio)", detail:"1×15 rotación interna y 1×15 externa cada lado · 15 círculos de muñeca."},
+      {label:"Movilidad cadera y tobillo", detail:"10 círculos cadera cada lado · 10 swings de pierna al frente · 30s sentadilla profunda con apoyo · 10 círculos tobillo."},
+      {label:"Activación glúteo y aductor", detail:"1×15 monster walk con banda + 10 puentes de glúteo + 10 aducciones con banda."}
+    ]},
+    sections:[
+      {material:"Mancuernas",icon:"🏋️",groups:[
+        {muscle:"Cuádriceps",exercises:[
+          {name:"Sentadilla goblet con mancuerna",sub:"Cuádriceps + glúteo",sets:"3-4",reps:"10-12",rest:"75s",tip:"Mancuerna al pecho. Baja profundo con torso arriba."},
+          {name:"Sentadilla búlgara con mancuernas",sub:"Cuádriceps unilateral",sets:"3",reps:"10 cada pierna",rest:"60s entre lados",tip:"Pie de atrás en banco. Rodilla trasera al suelo."},
+          {name:"Zancadas caminando con mancuernas",sub:"Cuádriceps + glúteo",sets:"3",reps:"10 cada pierna",rest:"75s",tip:"Pasos largos, rodilla trasera casi al suelo."},
+          {name:"Step-ups con mancuernas",sub:"Cuádriceps + glúteo unilateral",sets:"3",reps:"10 cada pierna",rest:"60s entre piernas",tip:"Sube completa, empuja con talón."}
+        ]},
+        {muscle:"Femoral",exercises:[
+          {name:"Peso muerto rumano con mancuernas",sub:"Femoral + glúteo",sets:"3",reps:"10-12",rest:"75s",tip:"Cadera atrás, espalda recta, mancuernas pegadas."}
+        ]},
+        {muscle:"Glúteo",exercises:[
+          {name:"Hip thrust con mancuerna",sub:"Glúteo",sets:"3",reps:"10-12",rest:"75s",tip:"Mancuerna sobre cadera. Empuja con talones, aprieta arriba 1s."},
+          {name:"Sentadilla sumo con mancuerna",sub:"Aductores + glúteo",sets:"3",reps:"12",rest:"60s",tip:"Pies muy abiertos, puntas afuera. Mancuerna entre piernas."}
+        ]},
+        {muscle:"Gemelo",exercises:[
+          {name:"Gemelo con mancuerna a 1 mano",sub:"Gemelo",sets:"3",reps:"12-15 cada pierna",rest:"45s entre lados",tip:"Pie en step. Rango completo, pausa arriba y abajo."}
+        ]}
+      ]},
+      {material:"Barra",icon:"➖",groups:[
+        {muscle:"Cuádriceps",exercises:[
+          {name:"Sentadilla frontal con barra",sub:"Cuádriceps",sets:"3-4",reps:"6-10",rest:"2 min",tip:"Codos altos, torso vertical. Amable con lumbar."},
+          {name:"Sentadilla trasera baja o alta",sub:"Cuádriceps + glúteo",sets:"3-4",reps:"6-10",rest:"2 min",tip:"Alta = más cuádriceps. Baja = más glúteo."},
+          {name:"Zancadas con barra atrás",sub:"Cuádriceps + glúteo",sets:"3",reps:"8 cada pierna",rest:"75s",tip:"Torso vertical."}
+        ]},
+        {muscle:"Femoral",exercises:[
+          {name:"Peso muerto rumano con barra",sub:"Femoral + glúteo",sets:"3",reps:"8-10",rest:"90s",tip:"Barra pegada a las piernas. Cuida lumbar."},
+          {name:"Buenos días con barra",sub:"Femoral + lumbar",sets:"3",reps:"10",rest:"75s",tip:"Peso ligero. Cadera atrás, espalda recta."}
+        ]},
+        {muscle:"Glúteo",exercises:[
+          {name:"Hip thrust con barra",sub:"Glúteo",sets:"3-4",reps:"8-10",rest:"90s",tip:"Hombros en banco, almohadilla sobre cadera. Empuja con talones."}
+        ]}
+      ]},
+      {material:"Polea",icon:"🪢",groups:[
+        {muscle:"Glúteo",exercises:[
+          {name:"Extensión cadera / patada glúteo en polea",sub:"Glúteo mayor",sets:"3",reps:"12 cada pierna",rest:"45s",tip:"Polea baja, tobillera. Extiende cadera atrás sin arquear lumbar."},
+          {name:"Abducción de cadera en polea",sub:"Glúteo medio",sets:"3",reps:"12 cada pierna",rest:"45s",tip:"Pie afuera. Foco glúteo medio."}
+        ]},
+        {muscle:"Aductor",exercises:[
+          {name:"Aducción de cadera en polea",sub:"Aductores",sets:"3",reps:"12 cada pierna",rest:"45s",tip:"De pie con tobillera, cruza la pierna adelante."}
+        ]},
+        {muscle:"Femoral",exercises:[
+          {name:"Curl femoral con polea (tobillera)",sub:"Femoral",sets:"3",reps:"12",rest:"60s",tip:"Tumbado boca abajo o de pie. Menos común pero eficaz."}
+        ]}
+      ]},
+      {material:"Máquinas",icon:"⚙️",groups:[
+        {muscle:"Cuádriceps",exercises:[
+          {name:"Hack squat",sub:"Cuádriceps",sets:"3-4",reps:"10-12",rest:"90s",tip:"Pies a media altura. Baja a 90°."},
+          {name:"Prensa 45°",sub:"Cuádriceps + glúteo",sets:"3-4",reps:"10-12",rest:"90s",tip:"Pies altos = más glúteo. Pies bajos = más cuádriceps."},
+          {name:"Sentadilla en máquina Smith",sub:"Cuádriceps + glúteo",sets:"3-4",reps:"8-12",rest:"90s",tip:"Pies ligeramente adelantados. Amable con lumbar."},
+          {name:"Extensión de cuádriceps",sub:"Cuádriceps aislado",sets:"3",reps:"12-15",rest:"60s",tip:"Pausa 1s arriba, contracción máxima."}
+        ]},
+        {muscle:"Femoral",exercises:[
+          {name:"Curl femoral tumbado",sub:"Femoral",sets:"3-4",reps:"10-12",rest:"60-75s",tip:"Cadera apoyada. No levantes cadera al subir."},
+          {name:"Curl femoral sentado",sub:"Femoral (más estiramiento)",sets:"3-4",reps:"10-12",rest:"60-75s",tip:"Bajada lenta 2-3s."}
+        ]},
+        {muscle:"Glúteo",exercises:[
+          {name:"Hip thrust en máquina",sub:"Glúteo",sets:"3-4",reps:"10-12",rest:"75s",tip:"Rango completo. Sin rebotar."},
+          {name:"Abductor en máquina",sub:"Glúteo medio",sets:"3",reps:"15",rest:"45s",tip:"Empuja con la cara externa del muslo."}
+        ]},
+        {muscle:"Aductor",exercises:[
+          {name:"Aductor en máquina",sub:"Aductores",sets:"3",reps:"15",rest:"45s",tip:"Rango completo, sin rebote."}
+        ]},
+        {muscle:"Gemelo",exercises:[
+          {name:"Gemelo de pie en máquina",sub:"Gemelo",sets:"3-4",reps:"12-15",rest:"45s",tip:"Rango completo, pausa arriba y abajo."},
+          {name:"Gemelo sentado en máquina",sub:"Sóleo",sets:"3-4",reps:"15-20",rest:"45s",tip:"Trabaja sóleo (fibra lenta)."}
+        ]}
+      ]},
+      {material:"Suelo",icon:"🧘",exercises:[
+        {name:"Crunch abdominal",sub:"Abdomen recto",sets:"3",reps:"15-20",rest:"45s",tip:"Rango corto, sin tirar del cuello."},
+        {name:"Elevación de piernas tumbado",sub:"Abdomen inferior",sets:"3",reps:"12-15",rest:"45s",tip:"Lumbar pegada al suelo."},
+        {name:"Puente de glúteo unilateral",sub:"Glúteo",sets:"3",reps:"12 cada pierna",rest:"45s entre lados",tip:"Cadera arriba, aprieta 1s."},
+        {name:"Superman",sub:"Erectores / lumbar",sets:"3",reps:"12",rest:"45s",tip:"Boca abajo, sube brazos y piernas 2s."}
+      ]},
+      {material:"Movilidad",icon:"🌀",exercises:[
+        {name:"90/90 cadera",sub:"Rotación cadera",sets:"2",reps:"30s cada lado",rest:"-",tip:"Sentado. Inclínate sobre la delantera."},
+        {name:"Mariposa (aductores)",sub:"Aductores",sets:"2",reps:"45-60s",rest:"-",tip:"Plantas juntas, rodillas al suelo."},
+        {name:"Paloma (pigeon pose)",sub:"Cadera profunda + glúteo",sets:"2",reps:"45s cada lado",rest:"-",tip:"Muy útil tras día de pierna."},
+        {name:"Estiramiento isquios sentado",sub:"Isquios",sets:"2",reps:"30s cada pierna",rest:"-",tip:"Inclínate desde la cadera."},
+        {name:"Cat-camel + child's pose",sub:"Lumbar / columna",sets:"2",reps:"10 + 30s",rest:"-",tip:"Descarga lumbar total."}
+      ]}
+    ]
+  },
+
+  brazos: {
+    title:"Brazos",
+    subtitle:"Bíceps · Tríceps (+ pecho ligero opcional)",
+    estimated:"45-60 min",
+    sectionsFormat:true,
+    targetMuscles:[
+      {muscle:"Bíceps",min:3,note:"varias variantes"},
+      {muscle:"Tríceps",min:3,note:"varias variantes"},
+      {muscle:"Antebrazo",min:1,note:"opcional recomendado"},
+      {muscle:"Pecho ligero",min:0,note:"opcional cierre"}
+    ],
+    warmup:{duration:"4-5 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio)", detail:"1×15 rotación interna y 1×15 externa cada lado · 15 círculos de muñeca cada mano."},
+      {label:"Activación", detail:"10 flexiones suaves + 1×15 face pull con banda. Despertar hombro y agarre."}
+    ]},
+    sections:[
+      {material:"Mancuernas",icon:"🏋️",groups:[
+        {muscle:"Bíceps",exercises:[
+          {name:"Curl bíceps alternado (supinación)",sub:"Bíceps",sets:"3-4",reps:"10-12 cada brazo",rest:"45-60s",tip:"Codo fijo, supina al subir."},
+          {name:"Curl bíceps simultáneo",sub:"Bíceps",sets:"3",reps:"10-12",rest:"60s",tip:"Ambos brazos a la vez. Sin balancear."},
+          {name:"Curl concentrado",sub:"Bíceps aislado",sets:"3",reps:"10 cada brazo",rest:"45s entre lados",tip:"Codo apoyado en muslo. Pico de contracción."},
+          {name:"Curl banco inclinado 60°",sub:"Bíceps (estiramiento)",sets:"3",reps:"10-12",rest:"60s",tip:"El banco estira el bíceps."}
+        ]},
+        {muscle:"Braquial / antebrazo",exercises:[
+          {name:"Curl martillo",sub:"Braquial + antebrazo",sets:"3",reps:"12",rest:"45s",tip:"Pulgar arriba todo el rango."},
+          {name:"Curl Zottman",sub:"Bíceps + antebrazo",sets:"3",reps:"10",rest:"60s",tip:"Sube supinado, baja pronado."}
+        ]},
+        {muscle:"Tríceps",exercises:[
+          {name:"Press francés con mancuerna 1 mano",sub:"Tríceps",sets:"3",reps:"12 cada lado",rest:"45s entre lados",tip:"Codo arriba y fijo."},
+          {name:"Extensión tríceps sobre cabeza mancuerna 2 manos",sub:"Tríceps (cabeza larga)",sets:"3",reps:"10-12",rest:"60s",tip:"Codos apuntando arriba, no abren."},
+          {name:"Patada tríceps con mancuerna",sub:"Tríceps",sets:"3",reps:"12 cada lado",rest:"45s entre lados",tip:"Tronco inclinado, codo pegado al costado."}
+        ]},
+        {muscle:"Pecho ligero (opcional)",exercises:[
+          {name:"Aperturas con mancuernas plano",sub:"Pecho ligero",sets:"2",reps:"12-15",rest:"60s",tip:"Cierre opcional. Peso cómodo."}
+        ]}
+      ]},
+      {material:"Barra",icon:"➖",groups:[
+        {muscle:"Bíceps",exercises:[
+          {name:"Curl con barra Z",sub:"Bíceps",sets:"3-4",reps:"10-12",rest:"60s",tip:"Barra Z protege muñeca."},
+          {name:"Curl predicador con barra Z",sub:"Bíceps aislado",sets:"3",reps:"10-12",rest:"60s",tip:"Codos pegados al apoyo. Bajada lenta."}
+        ]},
+        {muscle:"Braquial / antebrazo",exercises:[
+          {name:"Curl inverso con barra Z",sub:"Antebrazo + braquial",sets:"3",reps:"10",rest:"60s",tip:"Palmas abajo. Pesos ligeros."}
+        ]},
+        {muscle:"Tríceps",exercises:[
+          {name:"Press francés tumbado con barra Z",sub:"Tríceps",sets:"3",reps:"10-12",rest:"60s",tip:"Codos apuntando al techo."},
+          {name:"Press cerrado con barra (opcional)",sub:"Tríceps + pecho interno",sets:"3",reps:"8-10",rest:"90s",tip:"Manos anchura hombros. Codos pegados."}
+        ]}
+      ]},
+      {material:"Polea",icon:"🪢",groups:[
+        {muscle:"Bíceps",exercises:[
+          {name:"Curl bíceps polea baja barra Z",sub:"Bíceps",sets:"3-4",reps:"10-12",rest:"45-60s",tip:"Tensión continua todo el rango."},
+          {name:"Curl polea 1 brazo",sub:"Bíceps aislado",sets:"3",reps:"10 cada brazo",rest:"45s entre lados",tip:"De pie de lado. Foco unilateral."},
+          {name:"Curl concentrado en polea baja",sub:"Bíceps",sets:"3",reps:"10 cada brazo",rest:"45s entre lados",tip:"Sentado, codo apoyado en muslo."}
+        ]},
+        {muscle:"Braquial / antebrazo",exercises:[
+          {name:"Curl polea con cuerda martillo",sub:"Braquial + antebrazo",sets:"3",reps:"12",rest:"45s",tip:"Pulgar arriba."}
+        ]},
+        {muscle:"Tríceps",exercises:[
+          {name:"Extensión tríceps polea con cuerda",sub:"Tríceps",sets:"3-4",reps:"12-15",rest:"45-60s",tip:"Codos pegados al torso."},
+          {name:"Press tríceps polea barra V",sub:"Tríceps",sets:"3",reps:"10-12",rest:"60s",tip:"Codos quietos al costado."},
+          {name:"Patada tríceps polea 1 mano",sub:"Tríceps",sets:"3",reps:"12 cada lado",rest:"45s entre lados",tip:"Tronco inclinado, codo pegado."},
+          {name:"Extensión tríceps 1 mano polea agarre supino",sub:"Tríceps cabeza medial",sets:"3",reps:"12 cada lado",rest:"45s entre lados",tip:"Palma hacia arriba."}
+        ]}
+      ]},
+      {material:"Máquinas",icon:"⚙️",groups:[
+        {muscle:"Bíceps",exercises:[
+          {name:"Curl Scott / predicador máquina",sub:"Bíceps",sets:"3-4",reps:"10-12",rest:"45-60s",tip:"Codos apoyados. Bajada lenta."},
+          {name:"Curl bíceps brazo apoyado en máquina",sub:"Bíceps aislado",sets:"3",reps:"10-12",rest:"45s",tip:"Alternativa cómoda para foco puro."}
+        ]},
+        {muscle:"Tríceps",exercises:[
+          {name:"Fondos en máquina asistida",sub:"Tríceps + pecho",sets:"3",reps:"8-12",rest:"75s",tip:"Tronco vertical enfoca tríceps."},
+          {name:"Extensión tríceps en máquina",sub:"Tríceps",sets:"3",reps:"10-12",rest:"60s",tip:"Codos apoyados. Extensión completa."}
+        ]},
+        {muscle:"Pecho ligero (opcional)",exercises:[
+          {name:"Pec deck ligero",sub:"Pecho ligero",sets:"2",reps:"12-15",rest:"60s",tip:"Cierre opcional. Peso cómodo."}
+        ]}
+      ]},
+      {material:"Suelo",icon:"🧘",exercises:[
+        {name:"Crunch abdominal",sub:"Abdomen recto",sets:"3",reps:"15-20",rest:"45s",tip:"Rango corto, controlado."},
+        {name:"Elevación de piernas tumbado",sub:"Abdomen inferior",sets:"3",reps:"12-15",rest:"45s",tip:"Lumbar pegada al suelo."},
+        {name:"Elevación de piernas colgado en barra",sub:"Abdomen inferior + agarre",sets:"3",reps:"8-12",rest:"60s",tip:"Sin balanceo."},
+        {name:"Flexiones diamante (foco tríceps)",sub:"Tríceps + pecho interno",sets:"2-3",reps:"al fallo técnico",rest:"60s",tip:"Manos juntas formando diamante. Cierre opcional."}
+      ]},
+      {material:"Movilidad",icon:"🌀",exercises:[
+        {name:"90/90 cadera",sub:"Rotación cadera",sets:"2",reps:"30s cada lado",rest:"-",tip:"Sentado. Inclínate sobre la delantera."},
+        {name:"Mariposa (aductores)",sub:"Aductores",sets:"2",reps:"45-60s",rest:"-",tip:"Plantas juntas."},
+        {name:"Estiramiento isquios sentado",sub:"Isquios",sets:"2",reps:"30s cada pierna",rest:"-",tip:"Inclínate desde la cadera."},
+        {name:"Cat-camel + child's pose",sub:"Lumbar / columna",sets:"2",reps:"10 + 30s",rest:"-",tip:"Descarga lumbar."}
+      ]}
+    ]
+  },
+
   full_a: {
     title:"Full Body A",
     subtitle:"Definición · énfasis Empuje",
@@ -1625,13 +2080,17 @@ const STORAGE_PREFIX = "andresGymV1__";
 let currentDay = "push";
 let currentWeek = "yo"; // yo | hijo | old
 
-const DAYS_YO = ["full_a","full_b","full_c","full_d","full_light"];
+const DAYS_YO = ["empuje","tiron","pierna","brazos"];
 const DAYS_HIJO = ["hijo1","hijo2","hijo3","playa"];
-const DAYS_OLD = ["push","pull","legs","weekend","weekend2"];
+const DAYS_OLD = ["full_a","full_b","full_c","full_d","full_light","push","pull","legs","weekend","weekend2"];
 // Compatibilidad hacia atrás (por si algún día se referencian)
 const DAYS_KIDS = DAYS_YO;
 const DAYS_NOKIDS = DAYS_YO;
 const DAY_LABELS = {
+  empuje:{label:"Empuje", short:"Push · Pecho/Hombro/Tríceps"},
+  tiron:{label:"Tirón", short:"Pull · Espalda/Bíceps"},
+  pierna:{label:"Pierna", short:"Legs · Cuádriceps/Femoral/Glúteo"},
+  brazos:{label:"Brazos", short:"Arms · Bíceps/Tríceps"},
   full_a:{label:"Full A", short:"Full A · Empuje"},
   full_b:{label:"Full B", short:"Full B · Tirón"},
   full_c:{label:"Full C", short:"Full C · Pierna"},
@@ -1699,6 +2158,169 @@ function renderNav(){
   // Si el día actual no pertenece al modo actual, resetear al primero
     const _mode = currentWeek==="hijo" ? DAYS_HIJO : currentWeek==="old" ? DAYS_OLD : DAYS_YO;
     if(!_mode.includes(currentDay)){ currentDay = _mode[0]; }
+}
+
+function renderSectionsDay(day, root){
+  // Cabecera de objetivos por músculo
+  if(day.targetMuscles && day.targetMuscles.length){
+    const gc = document.createElement("div");
+    gc.className = "goals-card";
+    const chips = day.targetMuscles.map(t => {
+      const noteHtml = t.note ? `<span class="goal-note">· ${t.note}</span>` : "";
+      const minHtml = t.min > 0 ? `<span class="goal-min">${t.min}</span>` : `<span class="goal-min">·</span>`;
+      return `<span class="goal-chip">${minHtml}${t.muscle}${noteHtml}</span>`;
+    }).join("");
+    gc.innerHTML = `<b>Objetivo mínimo por músculo</b><div class="goals-list">${chips}</div>`;
+    root.appendChild(gc);
+  }
+
+  // Warmup
+  const w = renderWarmup(day);
+  if(w) root.appendChild(w);
+
+  // Secciones
+  day.sections.forEach((sec, sIdx) => {
+    root.appendChild(renderMaterialSection(day, sec, sIdx));
+  });
+}
+
+function renderMaterialSection(day, sec, sIdx){
+  const dayId = currentDay;
+  const card = document.createElement("article");
+  card.className = "msection";
+  // Contar ejercicios totales de la sección
+  let total = 0;
+  if(sec.groups){
+    sec.groups.forEach(g => total += g.exercises.length);
+  } else {
+    total = (sec.exercises || []).length;
+  }
+  const head = document.createElement("div");
+  head.className = "msection-h";
+  head.innerHTML = `
+    <div class="micon">${sec.icon || "💪"}</div>
+    <div class="mname">
+      <b>${sec.material}</b>
+      <div class="mcount">${total} opciones · elige las que quieras</div>
+    </div>
+    <div class="arrow">⌃</div>
+  `;
+  head.addEventListener("click", ()=> card.classList.toggle("open"));
+  card.appendChild(head);
+  const body = document.createElement("div");
+  body.className = "msection-body";
+
+  if(sec.groups){
+    sec.groups.forEach((g, gIdx) => {
+      const gwrap = document.createElement("div");
+      gwrap.className = "mgroup";
+      const gt = document.createElement("div");
+      gt.className = "mgroup-title";
+      gt.textContent = g.muscle;
+      gwrap.appendChild(gt);
+      g.exercises.forEach((ex, eIdx) => {
+        gwrap.appendChild(renderMExercise(dayId, sIdx, gIdx, eIdx, ex));
+      });
+      body.appendChild(gwrap);
+    });
+  } else if(sec.exercises){
+    sec.exercises.forEach((ex, eIdx) => {
+      body.appendChild(renderMExercise(dayId, sIdx, -1, eIdx, ex));
+    });
+  }
+
+  card.appendChild(body);
+  return card;
+}
+
+function renderMExercise(dayId, sIdx, gIdx, eIdx, ex){
+  const exKey = `${sIdx}_${gIdx}_${eIdx}`;
+  const doneKey = key(dayId, "mexdone", exKey);
+  const isDone = localStorage.getItem(doneKey) === "1";
+  const card = document.createElement("div");
+  card.className = "mex" + (isDone ? " done" : "");
+  const head = document.createElement("div");
+  head.className = "mex-h";
+  const setsCount = parseInt(String(ex.sets).match(/\d+/)?.[0] || "3", 10);
+  head.innerHTML = `
+    <div class="mex-check"><input type="checkbox" ${isDone ? "checked" : ""}></div>
+    <div class="mex-name">${ex.name}<span class="mex-sub">${ex.sub || ""}</span></div>
+    <div class="mex-meta">${ex.sets}×${ex.reps}<br>${ex.rest || ""}</div>
+    <div class="arrow">⌃</div>
+  `;
+  const chkInput = head.querySelector("input[type=checkbox]");
+  chkInput.addEventListener("click", e => e.stopPropagation());
+  chkInput.addEventListener("change", e => {
+    localStorage.setItem(doneKey, e.target.checked ? "1" : "0");
+    card.classList.toggle("done", e.target.checked);
+    updateProgress();
+  });
+  head.addEventListener("click", e => {
+    if(e.target.closest(".mex-check")) return;
+    card.classList.toggle("open");
+  });
+  card.appendChild(head);
+
+  const body = document.createElement("div");
+  body.className = "mex-body";
+  const tip = document.createElement("div");
+  tip.className = "mex-tip";
+  tip.innerHTML = `<b>Técnica.</b> ${ex.tip || ""}`;
+  body.appendChild(tip);
+
+  // Botón YouTube
+  const ytUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(ex.name + " técnica");
+  const yt = document.createElement("a");
+  yt.className = "mex-yt";
+  yt.href = ytUrl;
+  yt.target = "_blank";
+  yt.rel = "noopener";
+  yt.innerHTML = `<svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8C22 15.2 22 12 22 12s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg>Ver técnica`;
+  body.appendChild(yt);
+
+  // Tracker de peso/reps
+  const trWrap = document.createElement("div");
+  trWrap.className = "mex-tracker";
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  thead.innerHTML = `<tr><th>Serie</th><th>Peso</th><th>Reps</th><th>✓</th></tr>`;
+  table.appendChild(thead);
+  const tbody = document.createElement("tbody");
+  const defR = defaultReps(ex.reps);
+  for(let s = 0; s < setsCount; s++){
+    const tr = document.createElement("tr");
+    const wKey = key(dayId, "mexs", exKey, s, "w");
+    const rKey = key(dayId, "mexs", exKey, s, "r");
+    const cKey = key(dayId, "mexc", exKey, s);
+    const wVal = localStorage.getItem(wKey) || "";
+    const rVal = localStorage.getItem(rKey) || defR;
+    const cVal = localStorage.getItem(cKey) === "1";
+    if(cVal) tr.classList.add("done");
+    tr.innerHTML = `
+      <td class="mts">${s+1}</td>
+      <td><input type="number" inputmode="decimal" step="0.5" value="${wVal}" placeholder="—"></td>
+      <td><input type="number" inputmode="numeric" step="1" value="${rVal}" placeholder="—"></td>
+      <td class="mtc"><input type="checkbox" ${cVal ? "checked" : ""}></td>
+    `;
+    const [_, tdW, tdR, tdC] = tr.children;
+    tdW.querySelector("input").addEventListener("input", e => {
+      localStorage.setItem(wKey, e.target.value);
+    });
+    tdR.querySelector("input").addEventListener("input", e => {
+      localStorage.setItem(rKey, e.target.value);
+    });
+    tdC.querySelector("input").addEventListener("change", e => {
+      localStorage.setItem(cKey, e.target.checked ? "1" : "0");
+      tr.classList.toggle("done", e.target.checked);
+    });
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  trWrap.appendChild(table);
+  body.appendChild(trWrap);
+
+  card.appendChild(body);
+  return card;
 }
 
 function renderRoundsCounter(day){
@@ -1824,6 +2446,14 @@ function renderDay(){
     s.className = "safety-note";
     s.innerHTML = `<b>⚠ Seguridad</b>${day.safetyNote}`;
     root.appendChild(s);
+  }
+  // Formato por secciones (rutinas nuevas por músculo)
+  if(day.sectionsFormat){
+    renderSectionsDay(day, root);
+    document.getElementById("wkLabel").textContent =
+      `${DAY_LABELS[currentDay].short} · ${day.title}`;
+    updateProgress();
+    return;
   }
   const w = renderWarmup(day);
   if(w) root.appendChild(w);
@@ -2102,6 +2732,25 @@ function showSaved(){
 
 function updateProgress(){
   const day = ROUTINE[currentDay];
+  // Formato por secciones: contar ejercicios marcados como hechos vs total
+  if(day.sectionsFormat){
+    let total = 0, done = 0;
+    day.sections.forEach((sec, sIdx) => {
+      const iterate = (gIdx, exs) => exs.forEach((ex, eIdx) => {
+        total++;
+        const doneKey = key(currentDay, "mexdone", `${sIdx}_${gIdx}_${eIdx}`);
+        if(localStorage.getItem(doneKey) === "1") done++;
+      });
+      if(sec.groups) sec.groups.forEach((g, gIdx) => iterate(gIdx, g.exercises));
+      else if(sec.exercises) iterate(-1, sec.exercises);
+    });
+    // Objetivo: total de mínimos target (si existen)
+    const minTarget = (day.targetMuscles || []).reduce((a,t) => a + (t.min || 0), 0);
+    const denom = minTarget > 0 ? minTarget : Math.max(1, total);
+    const pct = Math.min(100, Math.round((done / denom) * 100));
+    document.getElementById("wkProg").style.width = pct + "%";
+    return;
+  }
   // Circuito: usar % basado en vueltas completadas vs objetivo
   if(day.circuit && day.circuitConfig){
     const done = parseInt(localStorage.getItem(key(currentDay,"rounds")) || "0", 10);
