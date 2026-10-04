@@ -135,6 +135,14 @@
   }
   .safety-note b{display:block;margin-bottom:3px;font-size:13.5px}
 
+  /* Nota del WOD (Hyrox/CrossFit) */
+  .wod-note{margin:10px 0;padding:12px 14px;background:#dbeafe;color:#1e3a5f;
+    border:1px solid #93c5fd;border-left:4px solid #3b82f6;border-radius:10px;font-size:13px;line-height:1.45}
+  @media (prefers-color-scheme: dark){
+    .wod-note{background:#172554;color:#bfdbfe;border-color:#1e40af;border-left-color:#60a5fa}
+  }
+  .wod-note b{display:block;margin-bottom:4px;font-size:13.5px}
+
   /* Recordatorio definición */
   .def-note{margin:8px 0;padding:9px 12px;background:var(--bg);color:var(--ink-soft);
     border:1px dashed var(--line);border-radius:10px;font-size:12px;line-height:1.4}
@@ -1136,6 +1144,494 @@ const ROUTINE = {
         {name:"Estiramiento isquios sentado",sub:"Isquios",sets:"2",reps:"30s cada pierna",rest:"-",tip:"Inclínate desde la cadera."},
         {name:"Cat-camel + child's pose",sub:"Lumbar / columna",sets:"2",reps:"10 + 30s",rest:"-",tip:"Descarga lumbar."}
       ]}
+    ]
+  },
+
+  metcon: {
+    title:"Metcon A",
+    subtitle:"AMRAP 20 min + fuerza accesoria · 50 min",
+    estimated:"50 min",
+    wodNote:"Bloque 1 (10 min calentamiento específico) + Bloque 2 (AMRAP 20 min: 4 ejercicios en rondas lo más rápido posible) + Bloque 3 (15 min fuerza accesoria con mancuernas). Apunta rondas completadas en el AMRAP.",
+    warmup:{duration:"8-10 min", steps:[
+      {label:"Rotaciones de hombro y muñeca", detail:"1×15 rotación interna y externa cada lado · círculos de muñeca."},
+      {label:"Cardio ligero", detail:"3 min bici o remo progresivo + 2 min movilidad general."},
+      {label:"Técnica específica del WOD", detail:"5 reps suaves de cada ejercicio del AMRAP para marcar técnica: 5 thrusters ligeros, 5 swings, 3 burpees, 5 step-ups."}
+    ]},
+    items:[
+      {num:1,group:"AMRAP 20 min · Ejercicio 1 · Thrusters con mancuernas",
+       variants:[
+        {type:"mancuerna",name:"10 Thrusters con mancuernas (8-12 kg c/u)",occ:"2 mancuernas al hombro",sets:1,reps:"10 por ronda · AMRAP 20 min total",rest:"-",
+         tip:"Mancuernas al hombro. Sentadilla profunda + press hombro en un movimiento. Explosivo arriba. En el 'reps' anota rondas completadas al final."},
+        {type:"mancuerna",name:"10 Thrusters con 1 mancuerna pesada (goblet thruster)",occ:"1 mancuerna pesada",sets:1,reps:"10 por ronda",rest:"-",
+         tip:"Variante con menos agarre. Mismo patrón."},
+        {type:"calistenia",name:"10 Air squats + 10 Pike push-ups",occ:"Suelo",sets:1,reps:"10+10 por ronda",rest:"-",
+         tip:"Escalado sin peso. Pike push-ups para hombro."}
+       ]},
+      {num:2,group:"AMRAP · Ejercicio 2 · KB swings",
+       variants:[
+        {type:"mancuerna",name:"10 Kettlebell swings rusos (16-20 kg)",occ:"Kettlebell",sets:1,reps:"10 por ronda",rest:"-",
+         tip:"Cadera impulsa, no brazos. Swing al pecho."},
+        {type:"mancuerna",name:"10 KB swings americanos (hasta arriba)",occ:"Kettlebell",sets:1,reps:"10 por ronda",rest:"-",
+         tip:"Más amplitud, más cardio."},
+        {type:"mancuerna",name:"10 Swing con mancuerna",occ:"1 mancuerna pesada",sets:1,reps:"10 por ronda",rest:"-",
+         tip:"Alternativa si no hay KB."}
+       ]},
+      {num:3,group:"AMRAP · Ejercicio 3 · Burpees",
+       variants:[
+        {type:"calistenia",name:"10 Burpees con flexión",occ:"Suelo",sets:1,reps:"10 por ronda",rest:"-",
+         tip:"Baja, flexión completa, recoge, salta. Mantén el ritmo."},
+        {type:"calistenia",name:"10 Burpees sin salto (escalado)",occ:"Suelo",sets:1,reps:"10 por ronda",rest:"-",
+         tip:"Sin salto ni palmada. Más cómodo para rodillas."},
+        {type:"calistenia",name:"5 Burpees + 10 Mountain climbers (escalado alto)",occ:"Suelo",sets:1,reps:"5+10 por ronda",rest:"-",
+         tip:"Alternativa si burpees cansan mucho."}
+       ]},
+      {num:4,group:"AMRAP · Ejercicio 4 · Box jumps / Step-ups",
+       variants:[
+        {type:"calistenia",name:"10 Box jumps a cajón (50-60 cm)",occ:"Cajón o banco firme",sets:1,reps:"10 por ronda",rest:"-",
+         tip:"Salta con brazos ayudando. Baja caminando siempre (no saltes abajo). Al terminar las rondas, apunta cuántas rondas completaste."},
+        {type:"calistenia",name:"10 Step-ups con mancuernas (banco alto)",occ:"Banco + mancuernas",sets:1,reps:"10 por ronda (5 cada pierna)",rest:"-",
+         tip:"Alternativa sin salto. Más amable con rodillas."},
+        {type:"calistenia",name:"10 Jump squats",occ:"Suelo",sets:1,reps:"10 por ronda",rest:"-",
+         tip:"Sentadilla + salto. Alternativa sin cajón."}
+       ]},
+      {num:5,group:"Fuerza accesoria · Press mancuernas",
+       variants:[
+        {type:"mancuerna",name:"Press hombro mancuernas sentado",occ:"Banco respaldo + mancuernas",sets:3,reps:"8-10",rest:"60-75s",
+         tip:"Después del AMRAP. Peso moderado, foco técnica. Mancuernas a altura orejas, no bloquees codos."},
+        {type:"mancuerna",name:"Press plano mancuernas",occ:"Banco + mancuernas",sets:3,reps:"8-10",rest:"60-75s",
+         tip:"Alternativa. Codos 45°."}
+       ]},
+      {num:6,group:"Fuerza accesoria · Remo",
+       variants:[
+        {type:"mancuerna",name:"Remo mancuerna 1 brazo",occ:"Banco + mancuerna",sets:3,reps:"10 cada lado",rest:"45s entre lados",
+         tip:"Tronco paralelo. Tira a la cadera. Cierre del día."},
+        {type:"mancuerna",name:"Remo con mancuernas inclinado 2 brazos",occ:"Banco inclinado + mancuernas",sets:3,reps:"10-12",rest:"60s",
+         tip:"Pecho apoyado en banco. Más control."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional (si te da tiempo)",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",
+         tip:"Rango corto, controlado."},
+        {type:"calistenia",name:"Plancha dinámica (opcional sustituir si pediste no planchas)",occ:"Suelo",sets:2,reps:"20-30s",rest:"45s",
+         tip:"Si prefieres, salta este ejercicio. Alternativa: elevación de piernas tumbado."},
+        {type:"calistenia",name:"Elevación de piernas tumbado",occ:"Suelo",sets:3,reps:"12-15",rest:"45s",
+         tip:"Lumbar pegada al suelo."}
+       ]},
+      {num:102,group:"Cooldown · opcional",
+       variants:[
+        {type:"maquina",name:"Bici muy suave 3-5 min",occ:"Bici",sets:1,reps:"3-5 min",rest:"-",
+         tip:"Baja pulsaciones."},
+        {type:"calistenia",name:"Estiramientos 3-5 min",occ:"Suelo",sets:1,reps:"5 min",rest:"-",
+         tip:"Mariposa + isquios + child's pose + estiramiento cuádriceps."}
+       ]}
+    ]
+  },
+
+  emom: {
+    title:"EMOM A",
+    subtitle:"Fuerza 20 min + EMOM 20 min · 50 min",
+    estimated:"50 min",
+    wodNote:"Bloque 1 (fuerza, 20 min): 4 series de cada ejercicio con descansos cortos. Bloque 2 (EMOM 20 min): Every Minute On the Minute. 5 rondas de 4 min — cada minuto empiezas un ejercicio distinto. Si acabas antes del minuto, descansas; si no acabas, escala peso o reps.",
+    warmup:{duration:"5-7 min", steps:[
+      {label:"Rotaciones de hombro y muñeca", detail:"1×15 rotación interna y externa cada lado · círculos de muñeca."},
+      {label:"Cardio ligero", detail:"3 min bici o remo progresivo."},
+      {label:"Movilidad", detail:"10 círculos cadera + 10 sentadillas peso corporal + 10 scapular pulls colgado."}
+    ]},
+    items:[
+      {num:1,group:"Fuerza · Sentadilla goblet",
+       variants:[
+        {type:"mancuerna",name:"Sentadilla goblet con kettlebell o mancuerna (16-20 kg)",occ:"KB o mancuerna",sets:4,reps:"8-10",rest:"60s",
+         tip:"KB al pecho. Baja profundo con torso arriba. Peso moderado, no fallo."},
+        {type:"barra",name:"Sentadilla frontal con barra",occ:"Barra + jaula",sets:4,reps:"6-8",rest:"90s",
+         tip:"Codos altos. Alternativa más pesada."},
+        {type:"maquina",name:"Prensa 45°",occ:"Prensa",sets:4,reps:"10",rest:"60s",
+         tip:"Alternativa si prefieres máquina."}
+       ]},
+      {num:2,group:"Fuerza · Press mancuernas",
+       variants:[
+        {type:"mancuerna",name:"Press hombro mancuernas sentado",occ:"Banco respaldo",sets:4,reps:"8-10",rest:"60s",
+         tip:"Mancuernas altura orejas. Empuja controlado."},
+        {type:"mancuerna",name:"Press plano mancuernas",occ:"Banco plano",sets:4,reps:"8-10",rest:"60s",
+         tip:"Codos 45°."}
+       ]},
+      {num:3,group:"Fuerza · Hip thrust",
+       variants:[
+        {type:"barra",name:"Hip thrust con barra",occ:"Barra + banco + almohadilla",sets:4,reps:"10",rest:"60s",
+         tip:"Empuja con talones, aprieta 1s arriba."},
+        {type:"mancuerna",name:"Hip thrust con mancuerna",occ:"Banco + mancuerna pesada",sets:4,reps:"12",rest:"60s",
+         tip:"Mancuerna sobre cadera."},
+        {type:"maquina",name:"Hip thrust en máquina",occ:"Máquina",sets:4,reps:"10-12",rest:"60s",
+         tip:"Alternativa si la hay."}
+       ]},
+      {num:4,group:"Fuerza · Remo mancuerna",
+       variants:[
+        {type:"mancuerna",name:"Remo mancuerna 1 brazo apoyado",occ:"Banco + mancuerna",sets:4,reps:"10 cada lado",rest:"45s entre lados",
+         tip:"Tira a la cadera. Final del bloque fuerza, pasas al EMOM."}
+       ]},
+      {num:5,group:"EMOM · Min 1 · KB swings",
+       variants:[
+        {type:"mancuerna",name:"12 Kettlebell swings rusos (16-20 kg)",occ:"KB",sets:5,reps:"12 cada minuto 1",rest:"-",
+         tip:"Minuto 1 de cada ronda EMOM. Empieza al segundo 0, acaba antes del segundo 50 para tener descanso. Son 5 rondas de 4 min = 20 min total."},
+        {type:"mancuerna",name:"10 KB swings americanos",occ:"KB",sets:5,reps:"10 cada minuto 1",rest:"-",
+         tip:"Hasta arriba. Más amplitud."}
+       ]},
+      {num:6,group:"EMOM · Min 2 · Wall balls",
+       variants:[
+        {type:"calistenia",name:"10 Wall balls (6-9 kg)",occ:"Pelota + diana pared",sets:5,reps:"10 cada minuto 2",rest:"-",
+         tip:"Minuto 2 de cada ronda. Sentadilla profunda + lanzamiento a diana."},
+        {type:"mancuerna",name:"10 Thrusters mancuernas (8-10 kg)",occ:"2 mancuernas",sets:5,reps:"10 cada minuto 2",rest:"-",
+         tip:"Alternativa si no hay pelota. Mismo patrón sentadilla+press."}
+       ]},
+      {num:7,group:"EMOM · Min 3 · Burpees",
+       variants:[
+        {type:"calistenia",name:"8 Burpees con salto",occ:"Suelo",sets:5,reps:"8 cada minuto 3",rest:"-",
+         tip:"Minuto 3 de cada ronda. Ritmo sostenible para 5 rondas."},
+        {type:"calistenia",name:"10 Burpees sin salto (escalado)",occ:"Suelo",sets:5,reps:"10 cada minuto 3",rest:"-",
+         tip:"Sin salto final."}
+       ]},
+      {num:8,group:"EMOM · Min 4 · Mountain climbers o remo",
+       variants:[
+        {type:"calistenia",name:"30 Mountain climbers (15 cada pierna)",occ:"Suelo",sets:5,reps:"30 cada minuto 4",rest:"-",
+         tip:"Minuto 4 cierra la ronda. Rápido pero controlado."},
+        {type:"maquina",name:"200m remo rápido",occ:"Máquina remo",sets:5,reps:"200m cada minuto 4",rest:"-",
+         tip:"Alternativa con cardio máquina. Objetivo 45-50s por 200m."},
+        {type:"maquina",name:"20 cal bici asalto",occ:"Air bike",sets:5,reps:"20 cal cada minuto 4",rest:"-",
+         tip:"Si tienes bici asalto, muy exigente. Alternativa."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional (si te da tiempo)",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",
+         tip:"Rango corto, controlado."},
+        {type:"calistenia",name:"Elevación de piernas tumbado",occ:"Suelo",sets:2,reps:"12-15",rest:"45s",
+         tip:"Lumbar pegada al suelo."}
+       ]},
+      {num:102,group:"Cooldown · opcional",
+       variants:[
+        {type:"maquina",name:"Bici muy suave 3-5 min",occ:"Bici",sets:1,reps:"3-5 min",rest:"-",
+         tip:"Baja pulsaciones."},
+        {type:"calistenia",name:"Estiramientos 3-5 min",occ:"Suelo",sets:1,reps:"5 min",rest:"-",
+         tip:"Cadera, aductores, isquios y descarga lumbar."}
+       ]}
+    ]
+  },
+
+  emom_b: {
+    title:"EMOM B",
+    subtitle:"Explosividad y salto · 50 min",
+    estimated:"50 min",
+    wodNote:"Bloque 1: fuerza unilateral 15 min (zancadas + press mancuernas). Bloque 2: EMOM 20 min (5 rondas de 4 min) con énfasis en salto y potencia. Si no acabas el minuto, baja reps o escala.",
+    warmup:{duration:"6-8 min", steps:[
+      {label:"Rotaciones de hombro y muñeca", detail:"1×15 rotación interna y externa cada lado · círculos de muñeca."},
+      {label:"Cardio progresivo", detail:"3 min bici o remo subiendo intensidad."},
+      {label:"Activación de salto y cadera", detail:"10 sentadillas peso corporal + 10 saltos verticales suaves + 10 scapular pulls colgado."}
+    ]},
+    items:[
+      {num:1,group:"Fuerza · Zancadas con mancuernas",
+       variants:[
+        {type:"mancuerna",name:"Zancadas con mancuernas caminando",occ:"2 mancuernas 10-15 kg + pasillo",sets:4,reps:"10 cada pierna",rest:"60s",
+         tip:"Pasos largos, rodilla trasera casi al suelo. Mancuernas a los lados. Peso moderado."},
+        {type:"barra",name:"Zancadas con barra atrás",occ:"Barra + jaula",sets:4,reps:"8 cada pierna",rest:"75s",
+         tip:"Más carga. Torso vertical."},
+        {type:"mancuerna",name:"Sentadilla búlgara con mancuernas",occ:"Banco + mancuernas",sets:4,reps:"8 cada pierna",rest:"60s entre lados",
+         tip:"Alternativa estática. Pie de atrás en banco."}
+       ]},
+      {num:2,group:"Fuerza · Press banca mancuernas",
+       variants:[
+        {type:"mancuerna",name:"Press banca plano con mancuernas",occ:"Banco plano + mancuernas",sets:4,reps:"10",rest:"60s",
+         tip:"Codos 45°. No al fallo, peso cómodo."},
+        {type:"mancuerna",name:"Press inclinado con mancuernas",occ:"Banco 30°",sets:4,reps:"10",rest:"60s",
+         tip:"Alternativa con énfasis pecho superior."},
+        {type:"maquina",name:"Press pecho en máquina",occ:"Máquina convergente",sets:4,reps:"10-12",rest:"60s",
+         tip:"Si prefieres estabilidad fija."}
+       ]},
+      {num:3,group:"EMOM · Min 1 · Box jumps (explosividad)",
+       variants:[
+        {type:"calistenia",name:"10 Box jumps (cajón 50-60 cm)",occ:"Cajón firme",sets:5,reps:"10 cada minuto 1",rest:"-",
+         tip:"Minuto 1 de cada ronda. Salto con brazos ayudando. Baja CAMINANDO siempre, nunca saltes abajo. Son 5 rondas EMOM de 4 min = 20 min."},
+        {type:"calistenia",name:"10 Step-ups con mancuernas",occ:"Banco alto + mancuernas",sets:5,reps:"10 cada min 1 (5 por pierna)",rest:"-",
+         tip:"Alternativa sin salto. Más amable con rodillas."},
+        {type:"calistenia",name:"10 Jump squats",occ:"Suelo",sets:5,reps:"10 cada minuto 1",rest:"-",
+         tip:"Sin cajón. Sentadilla + salto."}
+       ]},
+      {num:4,group:"EMOM · Min 2 · KB swings",
+       variants:[
+        {type:"mancuerna",name:"15 Kettlebell swings rusos (16-20 kg)",occ:"KB",sets:5,reps:"15 cada minuto 2",rest:"-",
+         tip:"Minuto 2 de cada ronda. Cadera impulsa, no brazos. Swing al pecho."},
+        {type:"mancuerna",name:"12 KB swings americanos",occ:"KB",sets:5,reps:"12 cada minuto 2",rest:"-",
+         tip:"Hasta arriba. Más amplitud."},
+        {type:"mancuerna",name:"15 Swings con mancuerna",occ:"1 mancuerna pesada",sets:5,reps:"15 cada minuto 2",rest:"-",
+         tip:"Alternativa si no hay KB."}
+       ]},
+      {num:5,group:"EMOM · Min 3 · Thrusters mancuernas",
+       variants:[
+        {type:"mancuerna",name:"12 Thrusters con mancuernas (8-10 kg)",occ:"2 mancuernas al hombro",sets:5,reps:"12 cada minuto 3",rest:"-",
+         tip:"Minuto 3. Sentadilla profunda + press hombro en movimiento fluido. Explosivo arriba."},
+        {type:"mancuerna",name:"12 Thrusters con 1 mancuerna goblet",occ:"1 mancuerna pesada",sets:5,reps:"12 cada minuto 3",rest:"-",
+         tip:"Mancuerna al pecho. Menos agarre, mismo patrón."},
+        {type:"calistenia",name:"15 Air squats + 10 Pike push-ups",occ:"Suelo",sets:5,reps:"15+10 cada minuto 3",rest:"-",
+         tip:"Escalado sin peso."}
+       ]},
+      {num:6,group:"EMOM · Min 4 · Cardio (cierra ronda)",
+       variants:[
+        {type:"maquina",name:"200m remo rápido",occ:"Máquina remo",sets:5,reps:"200m cada minuto 4",rest:"-",
+         tip:"Minuto 4 cierra la ronda. Objetivo 45-50s por 200m."},
+        {type:"maquina",name:"15 cal bici asalto",occ:"Air bike",sets:5,reps:"15 cal cada minuto 4",rest:"-",
+         tip:"Alternativa. Muy exigente."},
+        {type:"calistenia",name:"30 Mountain climbers",occ:"Suelo",sets:5,reps:"30 cada minuto 4",rest:"-",
+         tip:"Alternativa sin máquina. 15 por pierna."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional (si te da tiempo)",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",tip:"Rango corto, controlado."},
+        {type:"calistenia",name:"Elevación de piernas tumbado",occ:"Suelo",sets:2,reps:"12-15",rest:"45s",tip:"Lumbar pegada al suelo."}
+       ]},
+      {num:102,group:"Cooldown · opcional",
+       variants:[
+        {type:"maquina",name:"Bici muy suave 3-5 min",occ:"Bici",sets:1,reps:"3-5 min",rest:"-",tip:"Baja pulsaciones."},
+        {type:"calistenia",name:"Estiramientos 3-5 min",occ:"Suelo",sets:1,reps:"5 min",rest:"-",tip:"Cadera, aductores, cuádriceps (día de salto)."}
+       ]}
+    ]
+  },
+
+  emom_c: {
+    title:"EMOM C",
+    subtitle:"Fuerza densa + EMOM corto · 50 min",
+    estimated:"50 min",
+    wodNote:"Bloque 1: fuerza compuesta pesada 25 min (sentadilla + press banca + RDL con descansos amplios). Bloque 2: EMOM 15 min (5 rondas de 3 min, más corto pero intenso). Peso pesado, poco volumen.",
+    warmup:{duration:"7-10 min", steps:[
+      {label:"Rotaciones de hombro y muñeca", detail:"1×15 rotación interna y externa cada lado · círculos de muñeca."},
+      {label:"Cardio ligero", detail:"3 min bici o remo progresivo."},
+      {label:"Activación específica fuerza", detail:"2 series ligeras del primer ejercicio (sentadilla con poco peso, 10 reps) + 10 scapular pulls + 10 puentes de glúteo."}
+    ]},
+    items:[
+      {num:1,group:"Fuerza compuesta · Sentadilla (pesada)",
+       variants:[
+        {type:"barra",name:"Sentadilla trasera con barra",occ:"Barra + jaula",sets:5,reps:"5",rest:"2 min",
+         tip:"Peso pesado pero controlado. 2 reps en reserva. Alta = más cuádriceps."},
+        {type:"maquina",name:"Hack squat pesado",occ:"Máquina hack",sets:5,reps:"6-8",rest:"90s",
+         tip:"Alternativa más segura. Pies a media altura."},
+        {type:"mancuerna",name:"Sentadilla goblet pesada con KB",occ:"Kettlebell o mancuerna 24kg+",sets:5,reps:"8",rest:"90s",
+         tip:"KB al pecho. Si no hay más opciones, válido."}
+       ]},
+      {num:2,group:"Fuerza compuesta · Press banca",
+       variants:[
+        {type:"barra",name:"Press banca plano con barra",occ:"Banco + barra",sets:4,reps:"6-8",rest:"2 min",
+         tip:"Agarre algo más ancho que hombros. Muñequeras si molesta."},
+        {type:"mancuerna",name:"Press banca plano con mancuernas pesadas",occ:"Banco + mancuernas 20kg+",sets:4,reps:"8",rest:"90s",
+         tip:"Alternativa con mancuernas pesadas."},
+        {type:"maquina",name:"Press pecho en máquina pesado",occ:"Máquina convergente",sets:4,reps:"8-10",rest:"90s",
+         tip:"Opción segura, carga máxima controlada."}
+       ]},
+      {num:3,group:"Fuerza compuesta · Peso muerto rumano / Hip thrust",
+       variants:[
+        {type:"barra",name:"Peso muerto rumano con barra",occ:"Barra olímpica",sets:3,reps:"8",rest:"90s",
+         tip:"Cadera atrás, espalda recta, barra pegada."},
+        {type:"barra",name:"Hip thrust pesado con barra",occ:"Barra + banco + almohadilla",sets:3,reps:"8-10",rest:"90s",
+         tip:"Alternativa. Empuja con talones, aprieta 1s arriba."},
+        {type:"mancuerna",name:"RDL con mancuernas pesadas",occ:"Mancuernas pesadas",sets:3,reps:"10",rest:"75s",
+         tip:"Si no hay barra. Mismo patrón."}
+       ]},
+      {num:4,group:"EMOM · Min 1 · KB swings pesados",
+       variants:[
+        {type:"mancuerna",name:"10 KB swings rusos pesados (24-28 kg)",occ:"KB pesada",sets:5,reps:"10 cada minuto 1",rest:"-",
+         tip:"Minuto 1. EMOM 15 min = 5 rondas de 3 min. Peso superior al habitual, menos reps."},
+        {type:"mancuerna",name:"10 Swings con mancuerna pesada",occ:"Mancuerna pesada",sets:5,reps:"10 cada minuto 1",rest:"-",
+         tip:"Alternativa."}
+       ]},
+      {num:5,group:"EMOM · Min 2 · Burpees",
+       variants:[
+        {type:"calistenia",name:"8 Burpees con salto",occ:"Suelo",sets:5,reps:"8 cada minuto 2",rest:"-",
+         tip:"Minuto 2. Reps bajas porque viene fuerza pesada antes. Ritmo sostenible."},
+        {type:"calistenia",name:"10 Burpees sin salto",occ:"Suelo",sets:5,reps:"10 cada minuto 2",rest:"-",
+         tip:"Alternativa."}
+       ]},
+      {num:6,group:"EMOM · Min 3 · Tirón (dominadas o jalón)",
+       variants:[
+        {type:"calistenia",name:"6-8 Dominadas (o negativas si no salen)",occ:"Barra",sets:5,reps:"6-8 cada minuto 3",rest:"-",
+         tip:"Minuto 3 cierra ronda. Si no sales 6, usa dominadas negativas (saltas y bajas lento)."},
+        {type:"maquina",name:"10 Jalones polea pesados",occ:"Polea de jalones",sets:5,reps:"10 cada minuto 3",rest:"-",
+         tip:"Alternativa con polea."},
+        {type:"mancuerna",name:"10 Remos con mancuerna pesada",occ:"Mancuerna + banco",sets:5,reps:"10 cada minuto 3",rest:"-",
+         tip:"Si no hay barra."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional (si te da tiempo)",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",tip:"Rango corto, controlado."},
+        {type:"calistenia",name:"Elevación de piernas colgado en barra",occ:"Barra",sets:2,reps:"8-12",rest:"60s",tip:"Sin balanceo."}
+       ]},
+      {num:102,group:"Cooldown · opcional",
+       variants:[
+        {type:"maquina",name:"Bici muy suave 3-5 min",occ:"Bici",sets:1,reps:"3-5 min",rest:"-",tip:"Baja pulsaciones."},
+        {type:"calistenia",name:"Estiramientos 3-5 min",occ:"Suelo",sets:1,reps:"5 min",rest:"-",tip:"Cadera, aductores, isquios."}
+       ]}
+    ]
+  },
+
+  metcon_b: {
+    title:"Metcon B",
+    subtitle:"For Time 21-15-9 · 50 min",
+    estimated:"50 min",
+    wodNote:"Formato clásico CrossFit \"21-15-9\": haces 21 reps de cada ejercicio, luego 15, luego 9. Cronometras cuánto tardas en completar todo. Objetivo 8-15 min. Después, fuerza accesoria 15 min y cardio final 5 min. Apunta tu tiempo total en el 'reps' de la primera estación.",
+    warmup:{duration:"8-10 min", steps:[
+      {label:"Rotaciones de hombro y muñeca", detail:"1×15 rotación interna y externa cada lado · círculos de muñeca."},
+      {label:"Cardio progresivo", detail:"3 min bici o remo subiendo intensidad."},
+      {label:"Técnica específica del WOD", detail:"5 thrusters muy ligeros + 5 KB swings suaves + 3 burpees técnicos."}
+    ]},
+    items:[
+      {num:1,group:"For Time 21-15-9 · Ejercicio 1 · Thrusters",
+       variants:[
+        {type:"mancuerna",name:"Thrusters con mancuernas (8-10 kg c/u)",occ:"2 mancuernas al hombro",sets:3,reps:"21-15-9 rondas (apunta tiempo total en 'peso')",rest:"-",
+         tip:"Haces 21 en la primera, 15 en la segunda, 9 en la tercera. Sentadilla profunda + press hombro fluido. Peso cómodo para completar sin pausas largas."},
+        {type:"mancuerna",name:"Thrusters con 1 mancuerna goblet",occ:"1 mancuerna pesada",sets:3,reps:"21-15-9",rest:"-",
+         tip:"Mancuerna al pecho. Menos agarre."},
+        {type:"calistenia",name:"Air squats + Pike push-ups (escalado)",occ:"Suelo",sets:3,reps:"21-15-9 de cada",rest:"-",
+         tip:"Sin peso. 21 air squats + 21 pike push-ups, luego 15 de cada, luego 9."}
+       ]},
+      {num:2,group:"For Time 21-15-9 · Ejercicio 2 · KB swings",
+       variants:[
+        {type:"mancuerna",name:"KB swings rusos (16-20 kg)",occ:"Kettlebell",sets:3,reps:"21-15-9",rest:"-",
+         tip:"Cadera impulsa. 21 primeras, luego 15, luego 9. Fluido con los thrusters."},
+        {type:"mancuerna",name:"KB swings americanos",occ:"Kettlebell",sets:3,reps:"21-15-9",rest:"-",
+         tip:"Hasta arriba. Más amplitud, más cansancio."}
+       ]},
+      {num:3,group:"For Time 21-15-9 · Ejercicio 3 · Dominadas o burpees",
+       variants:[
+        {type:"calistenia",name:"Burpees",occ:"Suelo",sets:3,reps:"21-15-9",rest:"-",
+         tip:"Alternativa fácil (no requiere barra). Para la tercera ronda ya cuestan todas. Al terminar las 9, paras el crono y apuntas el tiempo total."},
+        {type:"calistenia",name:"Dominadas (asistidas si toca)",occ:"Barra",sets:3,reps:"21-15-9",rest:"-",
+         tip:"Formato Fran clásico. Si no sales 21 seguidas, divide. Con máquina asistida más viable."},
+        {type:"maquina",name:"Jalones polea",occ:"Polea",sets:3,reps:"21-15-9",rest:"-",
+         tip:"Alternativa máquina. Peso cómodo para completar."}
+       ]},
+      {num:4,group:"Fuerza accesoria · Press",
+       variants:[
+        {type:"mancuerna",name:"Press hombro mancuernas sentado",occ:"Banco respaldo + mancuernas",sets:3,reps:"8-10",rest:"60-75s",
+         tip:"Después del For Time, cuando hayas respirado. Peso moderado."},
+        {type:"mancuerna",name:"Press banca mancuernas",occ:"Banco + mancuernas",sets:3,reps:"8-10",rest:"60-75s",
+         tip:"Alternativa de empuje horizontal."}
+       ]},
+      {num:5,group:"Fuerza accesoria · Remo o pierna",
+       variants:[
+        {type:"mancuerna",name:"Remo mancuerna 1 brazo",occ:"Banco + mancuerna",sets:3,reps:"10 cada lado",rest:"45s entre lados",
+         tip:"Tira a la cadera. Equilibra el empuje."},
+        {type:"mancuerna",name:"Zancadas con mancuernas",occ:"Mancuernas + pasillo",sets:3,reps:"10 cada pierna",rest:"60s",
+         tip:"Si quieres pierna extra."}
+       ]},
+      {num:6,group:"Cardio final · 5 min máximo esfuerzo",
+       variants:[
+        {type:"maquina",name:"500m remo máximo esfuerzo",occ:"Máquina remo",sets:1,reps:"500m",rest:"-",
+         tip:"Cierre del día. Un solo esfuerzo intenso. Apunta tiempo."},
+        {type:"maquina",name:"1 km bici asalto",occ:"Air bike",sets:1,reps:"1 km",rest:"-",
+         tip:"Alternativa. Cadencia alta."},
+        {type:"maquina",name:"5 min bici progresiva",occ:"Bici",sets:1,reps:"5 min",rest:"-",
+         tip:"Si no quieres esfuerzo máximo, cardio moderado."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional (si te da tiempo)",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",tip:"Rango corto, controlado."},
+        {type:"calistenia",name:"Elevación de piernas tumbado",occ:"Suelo",sets:2,reps:"12-15",rest:"45s",tip:"Lumbar pegada."}
+       ]},
+      {num:102,group:"Cooldown · opcional",
+       variants:[
+        {type:"calistenia",name:"Estiramientos 5 min",occ:"Suelo",sets:1,reps:"5 min",rest:"-",tip:"Cadera, isquios, child's pose."}
+       ]}
+    ]
+  },
+
+  metcon_c: {
+    title:"Metcon C",
+    subtitle:"Chipper 50-40-30-20-10 · 50 min",
+    estimated:"50 min",
+    wodNote:"Formato \"Chipper\": haces TODAS las reps de un ejercicio y pasas al siguiente, SIN volver atrás. 50 wall balls → 40 KB swings → 30 burpees → 20 box jumps → 10 pull-ups. Cronometras el total. Objetivo 15-25 min. Luego fuerza accesoria 15 min y finisher cardio.",
+    warmup:{duration:"8-10 min", steps:[
+      {label:"Rotaciones de hombro y muñeca", detail:"1×15 rotación interna y externa cada lado · círculos de muñeca."},
+      {label:"Cardio progresivo", detail:"3 min bici o remo subiendo intensidad."},
+      {label:"Técnica específica", detail:"5 reps suaves de cada ejercicio del chipper: 5 wall balls, 5 swings, 3 burpees, 3 box jumps, 3 negativas de dominada."}
+    ]},
+    items:[
+      {num:1,group:"Chipper · 50 Wall balls",
+       variants:[
+        {type:"calistenia",name:"50 Wall balls (6-9 kg)",occ:"Pelota medicinal + diana",sets:1,reps:"50 (todas seguidas o particionadas, pero NO vuelves después)",rest:"-",
+         tip:"Primera estación. Puedes dividir en bloques (ej. 10-10-10-10-10) pero no cambias de estación hasta acabar las 50. Apunta tiempo total del chipper en 'peso' aquí."},
+        {type:"mancuerna",name:"50 Thrusters mancuernas (8-10 kg)",occ:"2 mancuernas",sets:1,reps:"50",rest:"-",
+         tip:"Alternativa sin pelota. Mismo patrón sentadilla+press."}
+       ]},
+      {num:2,group:"Chipper · 40 KB swings",
+       variants:[
+        {type:"mancuerna",name:"40 Kettlebell swings rusos (16-20 kg)",occ:"KB",sets:1,reps:"40",rest:"-",
+         tip:"Segunda estación. Pecho con el swing. Divide en 2-3 bloques si hace falta."},
+        {type:"mancuerna",name:"40 KB swings americanos",occ:"KB",sets:1,reps:"40",rest:"-",
+         tip:"Hasta arriba. Más agotador."}
+       ]},
+      {num:3,group:"Chipper · 30 Burpees",
+       variants:[
+        {type:"calistenia",name:"30 Burpees con salto",occ:"Suelo",sets:1,reps:"30",rest:"-",
+         tip:"Tercera estación. Ritmo sostenible, no esprintar. Divide si hace falta."},
+        {type:"calistenia",name:"30 Burpees sin salto",occ:"Suelo",sets:1,reps:"30",rest:"-",
+         tip:"Alternativa."}
+       ]},
+      {num:4,group:"Chipper · 20 Box jumps",
+       variants:[
+        {type:"calistenia",name:"20 Box jumps (50-60 cm)",occ:"Cajón",sets:1,reps:"20",rest:"-",
+         tip:"Cuarta estación. Baja CAMINANDO siempre, no saltes abajo. Si cansancio alto, divide."},
+        {type:"calistenia",name:"20 Step-ups con mancuernas",occ:"Banco alto + mancuernas",sets:1,reps:"20 (10 por pierna)",rest:"-",
+         tip:"Alternativa sin salto."},
+        {type:"calistenia",name:"20 Jump squats",occ:"Suelo",sets:1,reps:"20",rest:"-",
+         tip:"Sin cajón."}
+       ]},
+      {num:5,group:"Chipper · 10 Pull-ups (final)",
+       variants:[
+        {type:"calistenia",name:"10 Dominadas (asistidas si toca)",occ:"Barra o máquina asistida",sets:1,reps:"10",rest:"-",
+         tip:"Última estación. Al terminar las 10, paras crono y apuntas tiempo total en la primera estación."},
+        {type:"maquina",name:"15 Jalones polea pesados",occ:"Polea",sets:1,reps:"15",rest:"-",
+         tip:"Alternativa máquina. Más reps compensa menor intensidad."},
+        {type:"mancuerna",name:"15 Remos con mancuerna pesada",occ:"Mancuerna + banco",sets:1,reps:"15",rest:"-",
+         tip:"Si no hay barra ni polea libre."}
+       ]},
+      {num:6,group:"Fuerza accesoria · Pierna",
+       variants:[
+        {type:"mancuerna",name:"Zancadas con mancuernas",occ:"Mancuernas",sets:3,reps:"10 cada pierna",rest:"60s",
+         tip:"Después del chipper. Peso cómodo, foco técnica."},
+        {type:"maquina",name:"Prensa 45°",occ:"Prensa",sets:3,reps:"10-12",rest:"60s",
+         tip:"Alternativa controlada."}
+       ]},
+      {num:7,group:"Fuerza accesoria · Empuje o tirón",
+       variants:[
+        {type:"mancuerna",name:"Press hombro mancuernas",occ:"Banco respaldo",sets:3,reps:"8-10",rest:"60s",
+         tip:"Alternativa empuje. Peso moderado."},
+        {type:"mancuerna",name:"Remo mancuerna 1 brazo",occ:"Banco + mancuerna",sets:3,reps:"10 cada lado",rest:"45s entre lados",
+         tip:"Alternativa tirón."}
+       ]},
+      {num:8,group:"Finisher cardio · 3-5 min esfuerzo",
+       variants:[
+        {type:"maquina",name:"500m remo máximo esfuerzo",occ:"Máquina remo",sets:1,reps:"500m",rest:"-",
+         tip:"Último esfuerzo del día. Apunta tiempo."},
+        {type:"maquina",name:"1 km bici asalto",occ:"Air bike",sets:1,reps:"1 km",rest:"-",
+         tip:"Alternativa."},
+        {type:"maquina",name:"3 min bici progresiva (opcional)",occ:"Bici",sets:1,reps:"3 min",rest:"-",
+         tip:"Si vas muerto, cardio suave para cerrar."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional (si te da tiempo)",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",tip:"Rango corto, controlado."},
+        {type:"calistenia",name:"Elevación de piernas tumbado",occ:"Suelo",sets:2,reps:"12-15",rest:"45s",tip:"Lumbar pegada."}
+       ]},
+      {num:102,group:"Cooldown · opcional",
+       variants:[
+        {type:"calistenia",name:"Estiramientos 5 min",occ:"Suelo",sets:1,reps:"5 min",rest:"-",tip:"Cadera, aductores, isquios, child's pose."}
+       ]}
     ]
   },
 
@@ -2428,7 +2924,7 @@ const STORAGE_PREFIX = "andresGymV1__";
 let currentDay = "push";
 let currentWeek = "yo"; // yo | hijo | old
 
-const DAYS_YO = ["fb_a","fb_b","fb_c","empuje","tiron","pierna","brazos"];
+const DAYS_YO = ["fb_a","fb_b","fb_c","empuje","tiron","pierna","brazos","metcon","metcon_b","metcon_c","emom","emom_b","emom_c"];
 const DAYS_HIJO = ["hijo1","hijo2","hijo3","playa"];
 const DAYS_OLD = ["full_a","full_b","full_c","full_d","full_light","push","pull","legs","weekend","weekend2"];
 // Compatibilidad hacia atrás (por si algún día se referencian)
@@ -2442,6 +2938,12 @@ const DAY_LABELS = {
   tiron:{label:"Tirón", short:"Pull · Espalda/Bíceps"},
   pierna:{label:"Pierna", short:"Legs · Cuádriceps/Femoral/Glúteo"},
   brazos:{label:"Brazos", short:"Arms · Bíceps/Tríceps"},
+  metcon:{label:"Metcon A", short:"CF Metcon A · AMRAP"},
+  metcon_b:{label:"Metcon B", short:"CF Metcon B · 21-15-9"},
+  metcon_c:{label:"Metcon C", short:"CF Metcon C · Chipper"},
+  emom:{label:"EMOM A", short:"EMOM A · Fuerza + intervalos"},
+  emom_b:{label:"EMOM B", short:"EMOM B · Explosividad"},
+  emom_c:{label:"EMOM C", short:"EMOM C · Fuerza densa"},
   full_a:{label:"Full A", short:"Full A · Empuje"},
   full_b:{label:"Full B", short:"Full B · Tirón"},
   full_c:{label:"Full C", short:"Full C · Pierna"},
@@ -2797,6 +3299,12 @@ function renderDay(){
     s.className = "safety-note";
     s.innerHTML = `<b>⚠ Seguridad</b>${day.safetyNote}`;
     root.appendChild(s);
+  }
+  if(day.wodNote){
+    const w = document.createElement("div");
+    w.className = "wod-note";
+    w.innerHTML = `<b>⏱ Formato del entreno</b>${day.wodNote}`;
+    root.appendChild(w);
   }
   // Formato por secciones (rutinas nuevas por músculo)
   if(day.sectionsFormat){
