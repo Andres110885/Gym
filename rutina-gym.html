@@ -63,6 +63,14 @@
   .nav button .d{font-size:11px;color:var(--muted);font-weight:500}
   .nav button.on{border-color:var(--accent);background:var(--accent);color:#fff}
   .nav button.on .d{color:rgba(255,255,255,.85)}
+
+  /* Fila superior de grupos (en modo Yo) */
+  .groups-nav{display:flex;gap:4px;overflow-x:auto;padding:4px 0 8px;margin-bottom:4px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;border-bottom:1px dashed var(--line)}
+  .groups-nav::-webkit-scrollbar{display:none}
+  .groups-nav button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink-soft);
+    padding:7px 11px;border-radius:999px;font-weight:700;font-size:12px;cursor:pointer;white-space:nowrap}
+  .groups-nav button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
   .nav button.hidden{display:none}
 
   .day-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin:8px 2px 10px}
@@ -367,6 +375,7 @@
     </div>
   </div>
 
+  <nav class="groups-nav" id="groupsNav"></nav>
   <nav class="nav" id="dayNav"></nav>
 
   <main id="dayContent"></main>
@@ -407,6 +416,354 @@
 /* schema: { num, group, variants:[{name, occ, sets, reps, rest, tip}] } */
 
 const ROUTINE = {
+  lun5: {
+    title:"Lunes · Pecho",
+    subtitle:"5 días split · pecho completo",
+    estimated:"45-50 min",
+    warmup:{duration:"4-5 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio)", detail:"1×15 rotación interna y 1×15 externa cada lado · 15 círculos de muñeca."},
+      {label:"Movilidad torácica y pecho", detail:"10 círculos hombro + 10 abrir/cerrar pecho + 10 flexiones suaves de activación."}
+    ]},
+    items:[
+      {num:1,group:"Pecho superior · compuesto pesado",
+       variants:[
+        {type:"mancuerna",name:"Press inclinado con mancuernas",occ:"Banco 30°",sets:4,reps:"8-10",rest:"90s",
+         tip:"Banco a 30°. Codos 45°. Es tu compuesto principal del día, dedícale tiempo."},
+        {type:"barra",name:"Press banca inclinado con barra",occ:"Banco 30° + barra",sets:4,reps:"8-10",rest:"90s",
+         tip:"Más carga total. Agarre algo más ancho que hombros. Muñequeras si molesta."},
+        {type:"maquina",name:"Press inclinado en máquina convergente",occ:"Máquina",sets:4,reps:"8-10",rest:"90s",
+         tip:"Asas a altura de pecho alto. Opción segura y controlada."}
+       ]},
+      {num:2,group:"Pecho medio · compuesto secundario",
+       variants:[
+        {type:"barra",name:"Press banca plano con barra",occ:"Banco + barra",sets:3,reps:"8-10",rest:"75-90s",
+         tip:"Agarre medio. Codos 45°. Peso menor que si fuera el principal."},
+        {type:"maquina",name:"Press pecho en máquina (plano o convergente)",occ:"Máquina",sets:3,reps:"8-10",rest:"75s",
+         tip:"Ajusta asiento a altura de pecho medio."},
+        {type:"mancuerna",name:"Press plano con mancuernas",occ:"Banco plano + mancuernas",sets:3,reps:"8-10",rest:"75s",
+         tip:"Codos 45°. Baja controlado."}
+       ]},
+      {num:3,group:"Pecho aislamiento · aperturas",
+       variants:[
+        {type:"maquina",name:"Pec deck / aperturas en máquina",occ:"Máquina",sets:3,reps:"12-15",rest:"60s",
+         tip:"Codos ligeramente flexionados y fijos. Aprieta 1s al final."},
+        {type:"polea",name:"Cruces polea alta a baja",occ:"Poleas dobles",sets:3,reps:"12-15",rest:"60s",
+         tip:"Pies escalonados. Cruza al final."},
+        {type:"mancuerna",name:"Aperturas con mancuernas en banco plano o 30°",occ:"Banco + mancuernas",sets:3,reps:"12-15",rest:"60s",
+         tip:"Codos casi rectos. Estiramiento controlado."}
+       ]},
+      {num:4,group:"Pecho estiramiento · cruces o aperturas inclinadas",
+       variants:[
+        {type:"polea",name:"Cruces polea baja a alta",occ:"Poleas dobles",sets:3,reps:"12-15",rest:"60s",
+         tip:"Sube y junta al frente. Pecho superior y estiramiento."},
+        {type:"mancuerna",name:"Aperturas inclinadas con mancuernas",occ:"Banco 30°",sets:3,reps:"12",rest:"60s",
+         tip:"Estiramiento controlado. Pecho superior."},
+        {type:"maquina",name:"Pec deck 2ª serie con pausa",occ:"Máquina",sets:3,reps:"10-12 con pausa 1s",rest:"60s",
+         tip:"Alternativa si prefieres repetir pec deck con pausas más largas."}
+       ]},
+      {num:5,group:"Pecho cierre · opcional (si da tiempo)",
+       variants:[
+        {type:"maquina",name:"Fondos en máquina asistida (ligera inclinación adelante)",occ:"Máquina dips",sets:3,reps:"10-12",rest:"60s",
+         tip:"Inclínate ligeramente adelante para activar pecho. Trabaja también tríceps."},
+        {type:"calistenia",name:"Flexiones peso corporal al fallo técnico",occ:"Suelo",sets:3,reps:"al fallo",rest:"60s",
+         tip:"Cierre con peso corporal. Mantén buena técnica."},
+        {type:"polea",name:"Press polea 1 brazo (pecho)",occ:"Polea",sets:3,reps:"12 cada lado",rest:"45s entre lados",
+         tip:"Unilateral, aísla cada lado del pecho."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",tip:"Rango corto, controlado."},
+        {type:"calistenia",name:"Elevación de piernas colgado en barra",occ:"Barra",sets:2,reps:"8-12",rest:"60s",tip:"Sin balanceo."}
+       ]},
+      {num:102,group:"Movilidad · opcional",
+       variants:[
+        {type:"calistenia",name:"Estiramiento pectoral + child's pose",occ:"Esquina pared + suelo",sets:1,reps:"30s cada lado + 30s",rest:"-",tip:"Abre el pecho tras trabajo intenso."}
+       ]}
+    ]
+  },
+
+  mar5: {
+    title:"Martes · Espalda",
+    subtitle:"5 días split · espalda completa",
+    estimated:"45-50 min",
+    warmup:{duration:"4-5 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio)", detail:"1×15 rotación interna y 1×15 externa cada lado · 15 círculos de muñeca."},
+      {label:"Movilidad columna y escápulas", detail:"10 gato-camello + 10 thread the needle cada lado + 10 scapular pulls colgado de barra."}
+    ]},
+    items:[
+      {num:1,group:"Dorsal · tirón vertical pesado",
+       variants:[
+        {type:"maquina",name:"Jalón al pecho agarre prono ancho",occ:"Polea de jalones",sets:4,reps:"8-10",rest:"90s",
+         tip:"Pecho arriba, lleva al pecho alto. Retrae escápulas. Ejercicio principal del día."},
+        {type:"calistenia",name:"Dominadas (asistidas si toca)",occ:"Barra o máquina asistida",sets:4,reps:"6-10",rest:"90s",
+         tip:"Si salen 6+ limpias, directas. Si no, máquina asistida."},
+        {type:"polea",name:"Jalón agarre neutro (V)",occ:"Polea + agarre V",sets:4,reps:"8-10",rest:"90s",
+         tip:"Amable con muñeca y hombro."}
+       ]},
+      {num:2,group:"Espalda media · remo pesado",
+       variants:[
+        {type:"mancuerna",name:"Remo con mancuerna 1 brazo apoyado",occ:"Banco + mancuerna",sets:4,reps:"10-12 cada lado",rest:"60s entre lados",
+         tip:"Tronco paralelo. Tira a la cadera, codo cerca del cuerpo."},
+        {type:"barra",name:"Remo con barra Pendlay",occ:"Barra olímpica",sets:4,reps:"8-10",rest:"90s",
+         tip:"Cada rep desde el suelo. Tira al esternón."},
+        {type:"maquina",name:"Remo en máquina pecho apoyado",occ:"Máquina",sets:4,reps:"10-12",rest:"75s",
+         tip:"Codos cerca del cuerpo, sin encoger trapecio."}
+       ]},
+      {num:3,group:"Espalda media · 2º remo (otro ángulo)",
+       variants:[
+        {type:"polea",name:"Remo polea baja agarre cerrado",occ:"Polea baja",sets:3,reps:"10-12",rest:"60s",
+         tip:"Pecho fuera, tira al ombligo. Aprieta escápulas al final."},
+        {type:"maquina",name:"Remo en máquina (otra variante)",occ:"Máquina",sets:3,reps:"10-12",rest:"60s",
+         tip:"Si la primera fue máquina, aquí cambia a polea."},
+        {type:"mancuerna",name:"Remo con mancuernas en banco inclinado (pecho apoyado)",occ:"Banco 30° + mancuernas",sets:3,reps:"10-12",rest:"60s",
+         tip:"Pecho apoyado, menos trampa."}
+       ]},
+      {num:4,group:"Dorsal · aislamiento (pullover)",
+       variants:[
+        {type:"polea",name:"Pullover en polea alta brazos extendidos",occ:"Polea + barra recta",sets:3,reps:"12-15",rest:"60s",
+         tip:"Brazos casi rectos. Aprieta dorsal y baja la barra hasta los muslos. No es de tríceps."},
+        {type:"mancuerna",name:"Pullover con mancuerna",occ:"Mancuerna pesada + banco",sets:3,reps:"12",rest:"60s",
+         tip:"Codos casi rectos. Estiramiento profundo del dorsal."},
+        {type:"maquina",name:"Pull-around / pullover en máquina",occ:"Máquina",sets:3,reps:"12",rest:"60s",
+         tip:"Alternativa cómoda si la hay."}
+       ]},
+      {num:5,group:"Hombro posterior · face pull (prevención + espalda alta)",
+       variants:[
+        {type:"polea",name:"Face pull con cuerda",occ:"Polea alta",sets:3,reps:"15",rest:"45s",
+         tip:"Codos altos (altura barbilla). Separa cuerdas al final. Imprescindible para hombro de padel."},
+        {type:"maquina",name:"Rear delt / pec deck inverso",occ:"Máquina",sets:3,reps:"15",rest:"45s",
+         tip:"De frente al respaldo. Abre brazos, aprieta escápulas."},
+        {type:"mancuerna",name:"Pájaros con mancuernas inclinado",occ:"Banco 45°",sets:3,reps:"15",rest:"45s",
+         tip:"Codos un poco doblados. Sube codos."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional",
+       variants:[
+        {type:"calistenia",name:"Elevación de piernas tumbado",occ:"Suelo",sets:2,reps:"12-15",rest:"45s",tip:"Lumbar pegada."},
+        {type:"calistenia",name:"Superman",occ:"Suelo",sets:3,reps:"12",rest:"45s",tip:"Erectores + lumbar. Buena salud espalda."}
+       ]},
+      {num:102,group:"Movilidad · opcional",
+       variants:[
+        {type:"calistenia",name:"Child's pose + cat-camel",occ:"Suelo",sets:1,reps:"45s + 10 reps",rest:"-",tip:"Descarga lumbar tras trabajo de espalda."}
+       ]}
+    ]
+  },
+
+  mie5: {
+    title:"Miércoles · Pierna",
+    subtitle:"5 días split · pierna completa",
+    estimated:"50 min",
+    warmup:{duration:"6-7 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio)", detail:"1×15 rotación interna y 1×15 externa cada lado · 15 círculos de muñeca."},
+      {label:"Movilidad cadera y tobillo", detail:"10 círculos cadera + 10 swings de pierna al frente + 30s sentadilla profunda con apoyo + 10 círculos tobillo."},
+      {label:"Activación glúteo", detail:"1×15 monster walk con banda + 10 puentes de glúteo peso corporal."}
+    ]},
+    items:[
+      {num:1,group:"Cuádriceps · compuesto principal",
+       variants:[
+        {type:"maquina",name:"Hack squat",occ:"Máquina hack",sets:4,reps:"10-12",rest:"90s",
+         tip:"Pies a media altura. Baja a 90°. Deja 2 reps en reserva."},
+        {type:"maquina",name:"Prensa 45°",occ:"Prensa",sets:4,reps:"10-12",rest:"90s",
+         tip:"Pies bajos = más cuádriceps. Rango completo."},
+        {type:"barra",name:"Sentadilla frontal con barra",occ:"Barra + jaula",sets:4,reps:"6-8",rest:"2 min",
+         tip:"Codos altos, torso vertical. Amable con lumbar."}
+       ]},
+      {num:2,group:"Femoral · aislamiento",
+       variants:[
+        {type:"maquina",name:"Curl femoral tumbado",occ:"Máquina",sets:4,reps:"10-12",rest:"60-75s",
+         tip:"Cadera apoyada. Aprieta glúteo, no levantes cadera."},
+        {type:"maquina",name:"Curl femoral sentado",occ:"Máquina",sets:4,reps:"10-12",rest:"60-75s",
+         tip:"Más estiramiento. Bajada lenta 2-3s."},
+        {type:"mancuerna",name:"Peso muerto rumano con mancuernas",occ:"Mancuernas pesadas",sets:4,reps:"10-12",rest:"75s",
+         tip:"Cadera atrás, espalda recta."}
+       ]},
+      {num:3,group:"Cuádriceps · aislamiento",
+       variants:[
+        {type:"maquina",name:"Extensión de cuádriceps",occ:"Máquina",sets:3,reps:"12-15",rest:"60s",
+         tip:"Pausa 1s arriba, contracción máxima. Bajada controlada."},
+        {type:"mancuerna",name:"Sentadilla goblet",occ:"Mancuerna pesada",sets:3,reps:"12",rest:"60s",
+         tip:"Mancuerna al pecho. Alternativa compuesta ligera."},
+        {type:"calistenia",name:"Sentadilla búlgara peso corporal",occ:"Banco",sets:3,reps:"12 cada pierna",rest:"60s entre lados",
+         tip:"Alternativa unilateral sin peso."}
+       ]},
+      {num:4,group:"Glúteo · hip thrust",
+       variants:[
+        {type:"maquina",name:"Hip thrust en máquina",occ:"Máquina",sets:3,reps:"10-12",rest:"60s",
+         tip:"Rango completo. Sin rebotar. Aprieta glúteo 1s arriba."},
+        {type:"barra",name:"Hip thrust con barra",occ:"Barra + banco + almohadilla",sets:3,reps:"10",rest:"75s",
+         tip:"Empuja con talones. Más carga."},
+        {type:"mancuerna",name:"Hip thrust con mancuerna",occ:"Banco + mancuerna pesada",sets:3,reps:"12",rest:"60s",
+         tip:"Mancuerna sobre cadera."}
+       ]},
+      {num:5,group:"Gemelo",
+       variants:[
+        {type:"maquina",name:"Gemelo de pie en máquina",occ:"Máquina",sets:4,reps:"12-15",rest:"45s",
+         tip:"Rango completo, pausa arriba y abajo. Sin rebote."},
+        {type:"maquina",name:"Gemelo sentado en máquina (sóleo)",occ:"Máquina sentado",sets:4,reps:"15-20",rest:"45s",
+         tip:"Trabaja sóleo (fibra lenta). Lento y con contracción."},
+        {type:"mancuerna",name:"Gemelo a 1 pierna con mancuerna",occ:"Mancuerna + step",sets:4,reps:"12-15 cada pierna",rest:"45s entre lados",tip:"Pie en step, mancuerna misma mano."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Aductor/abductor · opcional (padel)",
+       variants:[
+        {type:"maquina",name:"Aductor + abductor en máquina",occ:"Misma máquina",sets:2,reps:"15 cada",rest:"45s",tip:"1 serie aductor + 1 abductor sin descanso. Estabilidad lateral para padel."}
+       ]},
+      {num:102,group:"Movilidad · opcional",
+       variants:[
+        {type:"calistenia",name:"Paloma + mariposa + isquios",occ:"Suelo",sets:1,reps:"45s cada",rest:"-",tip:"Imprescindible tras día de pierna."}
+       ]}
+    ]
+  },
+
+  jue5: {
+    title:"Jueves · Hombro",
+    subtitle:"5 días split · hombro completo + trapecio",
+    estimated:"45-50 min",
+    warmup:{duration:"4-5 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio EXTENDIDO)", detail:"2×15 rotación interna y 2×15 externa cada lado · 15 círculos de muñeca. HOY DOBLE porque es día de hombro — calienta el manguito a conciencia."},
+      {label:"Movilidad hombro y torácica", detail:"15 círculos hombro adelante + 15 atrás + 10 abrir/cerrar pecho + 10 scapular pulls colgado."}
+    ]},
+    items:[
+      {num:1,group:"Hombro · press (compuesto principal)",
+       variants:[
+        {type:"mancuerna",name:"Press hombro con mancuernas sentado",occ:"Banco respaldo 90°",sets:4,reps:"8-10",rest:"90s",
+         tip:"Mancuernas a altura orejas. No bloquees codos arriba. Es tu ejercicio principal del día."},
+        {type:"maquina",name:"Press hombro en máquina",occ:"Máquina vertical",sets:4,reps:"8-10",rest:"90s",
+         tip:"Sin encoger trapecio. Empuja controlado."},
+        {type:"barra",name:"Press militar sentado con barra",occ:"Banco + barra",sets:4,reps:"6-8",rest:"90s",
+         tip:"Sentado con respaldo. Baja a mentón. Codos no se abren."}
+       ]},
+      {num:2,group:"Hombro lateral · pesado",
+       variants:[
+        {type:"mancuerna",name:"Elevaciones laterales con mancuernas",occ:"De pie",sets:4,reps:"12-15",rest:"45s",
+         tip:"Codo lidera. Sube hasta paralela. Meñique ligeramente arriba. Las últimas series duras."},
+        {type:"polea",name:"Elevación lateral polea baja 1 brazo",occ:"Polea baja",sets:4,reps:"12 cada lado",rest:"45s entre lados",
+         tip:"Tensión continua. Brazo cruzando por delante."},
+        {type:"maquina",name:"Elevación lateral en máquina",occ:"Máquina",sets:4,reps:"12-15",rest:"45s",
+         tip:"Empuja con el codo. Sin balancear."}
+       ]},
+      {num:3,group:"Hombro anterior · elevación frontal",
+       variants:[
+        {type:"mancuerna",name:"Elevaciones frontales con mancuerna o disco",occ:"Mancuerna o disco a 2 manos",sets:3,reps:"12",rest:"45s",
+         tip:"Sube hasta altura de hombro. Movimiento limpio."},
+        {type:"polea",name:"Elevación frontal polea baja",occ:"Polea baja",sets:3,reps:"12",rest:"45s",
+         tip:"Brazo casi recto. Tensión continua."},
+        {type:"barra",name:"Elevación frontal con barra",occ:"Barra ligera",sets:3,reps:"12",rest:"45s",
+         tip:"Agarre a anchura hombros. Peso cómodo."}
+       ]},
+      {num:4,group:"Hombro posterior · imprescindible",
+       variants:[
+        {type:"maquina",name:"Rear delt / pec deck inverso",occ:"Máquina",sets:3,reps:"12-15",rest:"45s",
+         tip:"De frente al respaldo. Abre brazos, aprieta escápulas. Pausa al final."},
+        {type:"polea",name:"Face pull con cuerda",occ:"Polea alta",sets:3,reps:"15",rest:"45s",
+         tip:"Codos altos. Separa cuerdas al final. Prevención padel + posterior."},
+        {type:"mancuerna",name:"Pájaros con mancuernas inclinado",occ:"Banco 45°",sets:3,reps:"12-15",rest:"45s",
+         tip:"Codos algo doblados. Sube codos, no manos."}
+       ]},
+      {num:5,group:"Trapecio · encogimientos",
+       variants:[
+        {type:"mancuerna",name:"Encogimientos con mancuernas pesadas",occ:"Mancuernas",sets:3,reps:"12-15",rest:"45s",
+         tip:"Sube recto, sin rotar. Aprieta 1s arriba. Pesos cómodos."},
+        {type:"barra",name:"Encogimientos con barra",occ:"Barra olímpica",sets:3,reps:"12",rest:"45s",
+         tip:"Alternativa con barra."},
+        {type:"maquina",name:"Encogimientos en máquina o Smith",occ:"Máquina/Smith",sets:3,reps:"12-15",rest:"45s",
+         tip:"Sin estabilizar la barra. Foco muscular."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",tip:"Rango corto, controlado."},
+        {type:"calistenia",name:"Elevación de piernas colgado",occ:"Barra",sets:2,reps:"8-12",rest:"60s",tip:"Sin balanceo."}
+       ]},
+      {num:102,group:"Movilidad · opcional",
+       variants:[
+        {type:"calistenia",name:"Estiramiento pectoral + cuello/trapecio",occ:"Pared + suelo",sets:1,reps:"30s cada lado",rest:"-",tip:"Descarga hombro y cuello tras día intenso."}
+       ]}
+    ]
+  },
+
+  vie5: {
+    title:"Viernes · Brazos",
+    subtitle:"5 días split · bíceps + tríceps completos",
+    estimated:"45-50 min",
+    warmup:{duration:"4-5 min", steps:[
+      {label:"Rotaciones de hombro y muñeca (obligatorio)", detail:"1×15 rotación interna y 1×15 externa cada lado · 15 círculos de muñeca."},
+      {label:"Activación brazos", detail:"10 flexiones diamante suaves + 10 curl con poco peso + 10 extensiones ligeras. Despertar codos y muñecas."}
+    ]},
+    items:[
+      {num:1,group:"Bíceps · compuesto pesado",
+       variants:[
+        {type:"barra",name:"Curl con barra Z",occ:"Barra Z (no recta)",sets:4,reps:"8-10",rest:"60-75s",
+         tip:"Codos pegados al costado. La barra Z protege muñeca. Peso cómodo para 8-10 limpias."},
+        {type:"mancuerna",name:"Curl bíceps con mancuernas alterno",occ:"De pie",sets:4,reps:"8-10 cada brazo",rest:"60s",
+         tip:"Codo fijo. Supina al subir. No balancees."},
+        {type:"polea",name:"Curl polea baja barra Z",occ:"Polea + barra Z",sets:4,reps:"8-10",rest:"60s",
+         tip:"Tensión continua. Más estable que barra."}
+       ]},
+      {num:2,group:"Tríceps · compuesto pesado",
+       variants:[
+        {type:"barra",name:"Press francés tumbado con barra Z",occ:"Banco + barra Z",sets:4,reps:"8-10",rest:"60-75s",
+         tip:"Codos apuntando al techo, casi fijos. Barra Z protege muñeca."},
+        {type:"mancuerna",name:"Extensión tríceps sobre cabeza mancuerna 2 manos",occ:"Sentado",sets:4,reps:"10-12",rest:"60s",
+         tip:"Codos apuntando arriba, no abren. Baja controlado."},
+        {type:"barra",name:"Press cerrado con barra Z",occ:"Banco + barra Z",sets:4,reps:"8-10",rest:"75s",
+         tip:"Manos anchura hombros, codos pegados. Alternativa más compuesta."}
+       ]},
+      {num:3,group:"Bíceps · aislamiento (predicador o concentrado)",
+       variants:[
+        {type:"maquina",name:"Curl banco predicador máquina",occ:"Banco Scott",sets:3,reps:"10-12",rest:"60s",
+         tip:"Codos pegados al apoyo. Bajada lenta."},
+        {type:"mancuerna",name:"Curl concentrado",occ:"Banco + mancuerna",sets:3,reps:"10 cada brazo",rest:"45s entre lados",
+         tip:"Codo apoyado en muslo interno. Pico de contracción muy claro."},
+        {type:"barra",name:"Curl predicador con barra Z",occ:"Banco Scott + barra Z",sets:3,reps:"10-12",rest:"60s",
+         tip:"Bajada muy lenta. No extiendas del todo abajo."}
+       ]},
+      {num:4,group:"Tríceps · aislamiento (polea)",
+       variants:[
+        {type:"polea",name:"Extensión tríceps polea con cuerda",occ:"Polea alta",sets:3,reps:"12-15",rest:"45-60s",
+         tip:"Codos pegados al torso. Separa cuerdas al final."},
+        {type:"polea",name:"Press tríceps polea barra V",occ:"Polea alta",sets:3,reps:"10-12",rest:"60s",
+         tip:"Codos quietos al costado."},
+        {type:"maquina",name:"Extensión tríceps en máquina",occ:"Máquina",sets:3,reps:"10-12",rest:"60s",
+         tip:"Codos apoyados. Extensión completa."}
+       ]},
+      {num:5,group:"Braquial / antebrazo (martillo)",
+       variants:[
+        {type:"mancuerna",name:"Curl martillo con mancuernas",occ:"Mancuernas",sets:3,reps:"12",rest:"45s",
+         tip:"Pulgar arriba todo el rato. Trabaja braquial y antebrazo."},
+        {type:"polea",name:"Curl martillo con cuerda en polea",occ:"Polea + cuerda",sets:3,reps:"12",rest:"45s",
+         tip:"Pulgar arriba. Tensión continua."},
+        {type:"mancuerna",name:"Curl Zottman",occ:"Mancuernas",sets:3,reps:"10",rest:"60s",
+         tip:"Sube supinado, baja pronado. Antebrazo extra."}
+       ]},
+      {num:6,group:"Tríceps · cierre (fondos opcional si da tiempo)",
+       variants:[
+        {type:"maquina",name:"Fondos en máquina asistida",occ:"Máquina dips",sets:3,reps:"10-12",rest:"60s",
+         tip:"Tronco vertical enfoca tríceps."},
+        {type:"calistenia",name:"Fondos en banco",occ:"Banco",sets:3,reps:"10-12",rest:"60s",
+         tip:"Manos en banco, piernas al frente."},
+        {type:"mancuerna",name:"Patada tríceps con mancuerna",occ:"Banco + mancuerna",sets:3,reps:"12 cada lado",rest:"45s entre lados",
+         tip:"Tronco inclinado, codo pegado al costado."}
+       ]}
+    ],
+    extras:[
+      {num:101,group:"Abdominal · opcional",
+       variants:[
+        {type:"calistenia",name:"Crunch abdominal",occ:"Suelo",sets:2,reps:"15-20",rest:"45s",tip:"Rango corto."},
+        {type:"calistenia",name:"Elevación de piernas tumbado",occ:"Suelo",sets:2,reps:"12-15",rest:"45s",tip:"Lumbar pegada."}
+       ]},
+      {num:102,group:"Movilidad · opcional (fin de semana)",
+       variants:[
+        {type:"calistenia",name:"Movilidad general 5 min",occ:"Suelo",sets:1,reps:"5 min",rest:"-",tip:"Cadera, hombros, lumbar. Cierre de la semana."}
+       ]}
+    ]
+  },
+
   fb_a: {
     title:"Full Body A",
     subtitle:"Cuerpo entero · énfasis empuje (pecho y brazos)",
@@ -2924,13 +3281,26 @@ const STORAGE_PREFIX = "andresGymV1__";
 let currentDay = "push";
 let currentWeek = "yo"; // yo | hijo | old
 
-const DAYS_YO = ["fb_a","fb_b","fb_c","empuje","tiron","pierna","brazos","metcon","metcon_b","metcon_c","emom","emom_b","emom_c"];
+const DAYS_YO = ["lun5","mar5","mie5","jue5","vie5","fb_a","fb_b","fb_c","empuje","tiron","pierna","brazos","metcon","metcon_b","metcon_c","emom","emom_b","emom_c"];
+const YO_GROUPS = [
+  {id:"r5",   label:"📅 5 días",     days:["lun5","mar5","mie5","jue5","vie5"]},
+  {id:"fb",   label:"💪 Full Body (3)",   days:["fb_a","fb_b","fb_c"]},
+  {id:"mus",  label:"🎯 Por músculos", days:["empuje","tiron","pierna","brazos"]},
+  {id:"met",  label:"🔥 CF Metcon",   days:["metcon","metcon_b","metcon_c"]},
+  {id:"emo",  label:"⏱ EMOM",        days:["emom","emom_b","emom_c"]}
+];
+let currentGroup = "r5";
 const DAYS_HIJO = ["hijo1","hijo2","hijo3","playa"];
 const DAYS_OLD = ["full_a","full_b","full_c","full_d","full_light","push","pull","legs","weekend","weekend2"];
 // Compatibilidad hacia atrás (por si algún día se referencian)
 const DAYS_KIDS = DAYS_YO;
 const DAYS_NOKIDS = DAYS_YO;
 const DAY_LABELS = {
+  lun5:{label:"Lunes", short:"Lun · Pecho"},
+  mar5:{label:"Martes", short:"Mar · Espalda"},
+  mie5:{label:"Miércoles", short:"Mié · Pierna"},
+  jue5:{label:"Jueves", short:"Jue · Hombro"},
+  vie5:{label:"Viernes", short:"Vie · Brazos"},
   fb_a:{label:"Full A", short:"Full A · Empuje/Brazos"},
   fb_b:{label:"Full B", short:"Full B · Tirón/Brazos"},
   fb_c:{label:"Full C", short:"Full C · Glúteo/Balance"},
@@ -2996,9 +3366,42 @@ function saveCheck(dayId, exNum, vIdx, sIdx, val){
 }
 
 /* ============ RENDER ============ */
+function renderGroupsNav(){
+  const gn = document.getElementById("groupsNav");
+  if(currentWeek !== "yo"){ gn.style.display = "none"; return; }
+  gn.style.display = "flex";
+  gn.innerHTML = "";
+  YO_GROUPS.forEach(g => {
+    const b = document.createElement("button");
+    b.textContent = g.label;
+    b.className = (g.id === currentGroup ? "on" : "");
+    b.addEventListener("click", () => {
+      currentGroup = g.id;
+      localStorage.setItem(STORAGE_PREFIX+"group", currentGroup);
+      if(!g.days.includes(currentDay)){
+        currentDay = g.days[0];
+        localStorage.setItem(STORAGE_PREFIX+"day", currentDay);
+      }
+      renderAll();
+    });
+    gn.appendChild(b);
+  });
+}
+
 function renderNav(){
+  renderGroupsNav();
   const nav = document.getElementById("dayNav");
-  const days = currentWeek === "kids" ? DAYS_KIDS : DAYS_NOKIDS;
+  let days;
+  if(currentWeek === "yo"){
+    const g = YO_GROUPS.find(x => x.id === currentGroup) || YO_GROUPS[0];
+    days = g.days;
+  } else if(currentWeek === "hijo"){
+    days = DAYS_HIJO;
+  } else if(currentWeek === "old"){
+    days = DAYS_OLD;
+  } else {
+    days = DAYS_YO;
+  }
   nav.innerHTML = "";
   days.forEach(d=>{
     const b = document.createElement("button");
@@ -3008,9 +3411,7 @@ function renderNav(){
     b.addEventListener("click", ()=>{ currentDay = d; localStorage.setItem(STORAGE_PREFIX+"day", currentDay); renderAll(); });
     nav.appendChild(b);
   });
-  // Si el día actual no pertenece al modo actual, resetear al primero
-    const _mode = currentWeek==="hijo" ? DAYS_HIJO : currentWeek==="old" ? DAYS_OLD : DAYS_YO;
-    if(!_mode.includes(currentDay)){ currentDay = _mode[0]; }
+  if(!days.includes(currentDay)){ currentDay = days[0]; }
 }
 
 function renderSectionsDay(day, root){
@@ -3681,6 +4082,17 @@ document.getElementById("resetDay").addEventListener("click", ()=>{
   const d = localStorage.getItem(STORAGE_PREFIX+"day");
   const validDays = currentWeek==="hijo" ? DAYS_HIJO : currentWeek==="old" ? DAYS_OLD : DAYS_YO;
   if(d && validDays.includes(d)) currentDay = d;
+  // Cargar grupo si estamos en modo Yo
+  const g = localStorage.getItem(STORAGE_PREFIX+"group");
+  if(g && YO_GROUPS.find(x => x.id === g)){
+    currentGroup = g;
+  }
+  // Si el día actual no está en el grupo, cambiar grupo al que contiene el día
+  if(currentWeek === "yo"){
+    const groupOfDay = YO_GROUPS.find(x => x.days.includes(currentDay));
+    if(groupOfDay) currentGroup = groupOfDay.id;
+    else currentDay = YO_GROUPS.find(x => x.id === currentGroup).days[0];
+  }
   renderAll();
   initBlockBanner();
 })();
